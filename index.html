@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./style/style.css" />
+  <title>CSS Position</title>
+  <script src="./vue/vue.js"></script>
+</head>
+<body class="body">
+  <!--Vue start-->
+  <div id="app" class="wrapper">
+    <main class="main">
+      <section class="header">
+        <h1>CSS POSITION</h1>
+        <div class="navigation">
+          <span class="left_arrow" @click="prevLevel"></span>
+          <span class="current_level" @click="dropdown = !dropdown">Уровень {{currentLevel}} из {{maxLevel}} &#9662;</span>
+          <span class="right_arrow" @click="nextLevel"></span>
+          <div class="dropdown_content" :class="{show_dropdown:dropdown}">
+            <span @click="setCurrentLevel(1)" class="level1" :class="{completed_button:completedLevels[0]}">1</span>
+            <span @click="setCurrentLevel(2)" class="level2" :class="{completed_button:completedLevels[1]}">2</span>
+            <span @click="setCurrentLevel(3)" class="level3" :class="{completed_button:completedLevels[2]}">3</span>
+            <span @click="setCurrentLevel(4)" class="level4" :class="{completed_button:completedLevels[3]}">4</span>
+            <span @click="reset" class="reset">Сбросить</span>
+          </div>
+        </div>
+      </section>
+      <section class="main_content" @click="dropdown=false">
+        <p v-for="(text, index) in levels[currentLevel-1].text" :key="index">{{text}}</p>
+        <form @submit.prevent="onSubmit" v-bind:class="form">
+          <div v-if="levels[currentLevel-1].flowerAnswer">
+            <span>.flower {</span>
+            <textarea type="text" required v-model="playerFlowerAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].blueAnswer">
+            <span>.flower.blue {</span>
+            <textarea type="text" required v-model="playerBlueAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].redAnswer">
+            <span>.flower.red {</span>
+            <textarea type="text" required v-model="playerRedAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].yellowAnswer">
+            <span>.flower.yellow {</span>
+            <textarea type="text" required v-model="playerYellowAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <button type="submit" class="submit_button">Следующий</button>
+        </form>
+      </section>
+    </main>
+    <aside class="field" @click="dropdown=false">
+      <div class="squares">
+        <img src="./assets/bg.svg" alt="square" class="square" v-for="n in (1,16)" :key="n">
+      </div>
+      <div v-if="levels[currentLevel-1].blueAnswer" v-bind:class="levels[currentLevel-1].blueFlower" v-bind:style="blueStyle"></div>
+      <div v-if="levels[currentLevel-1].redAnswer" v-bind:class="levels[currentLevel-1].redFlower" v-bind:style="redStyle"></div>
+      <div v-if="levels[currentLevel-1].yellowAnswer" v-bind:class="levels[currentLevel-1].yellowFlower" v-bind:style="yellowStyle"></div>
+      <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower" v-bind:style="redStyle"></div>
+      <div v-if="levels[currentLevel-1].blueButterfly" v-bind:class="levels[currentLevel-1].blueButterfly"></div>
+      <div v-if="levels[currentLevel-1].redButterfly" v-bind:class="levels[currentLevel-1].redButterfly"></div>
+      <div v-if="levels[currentLevel-1].yellowButterfly" v-bind:class="levels[currentLevel-1].yellowButterfly"></div>
+      <div v-if="levels[currentLevel-1].red2Butterfly" v-bind:class="levels[currentLevel-1].red2Butterfly"></div>
+    </aside>
+  </div>
+  <!--Vue End-->
+  <script src="./app.js"></script>
+</body>
+</html>

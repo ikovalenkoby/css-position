@@ -3,6 +3,7 @@ const App = {
     return {
       currentLevel: 1,
       maxLevel: 4,
+      completedLevels: [false, false, false, false],
       levels: [
         {
           text: [
@@ -19,6 +20,11 @@ const App = {
             flower_blue: true,
             flower: true,
             flower_level4: false,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level3:false,
+            square_blue_level4:false
           },
         },
         {
@@ -41,6 +47,11 @@ const App = {
             flower: true,
             flower_level4: false,
           },
+          redSquare: {
+            square_red: true,
+            square_red_level3:false,
+            square_red_level4:false
+          },
         },
         {
           text: [
@@ -61,17 +72,32 @@ const App = {
             flower: true,
             flower_level4: false,
           },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level3:true,
+            square_blue_level4:false
+          },
           redAnswer: 'position:relative;left:200px;top:-100px;',
           redFlower: {
             flower_red: true,
             flower: true,
             flower_level4: false,
           },
+          redSquare: {
+            square_red: true,
+            square_red_level3:true,
+            square_red_level4:false
+          },
           yellowAnswer: 'position:relative;top:-200px;',
           yellowFlower: {
             flower_yellow: true,
             flower: true,
             flower_level4: false,
+          },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level3:true,
+            square_yellow_level4:false
           },
         },
         {
@@ -95,11 +121,21 @@ const App = {
             flower: false,
             flower_level4: true,
           },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level3:false,
+            square_blue_level4:true
+          },
           redAnswer: 'right:-100px;',
           redFlower: {
             flower_red: true,
             flower: false,
             flower_level4: true,
+          },
+          redSquare: {
+            square_red: true,
+            square_red_level3:false,
+            square_red_level4:true
           },
           yellowAnswer: 'right:-200px;bottom:200px;',
           yellowFlower: {
@@ -107,10 +143,17 @@ const App = {
             flower: false,
             flower_level4: true,
           },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level3:false,
+            square_yellow_level4:true
+          },
           red2Answer: true,
+          red2Square: {
+            square_red2: true,
+          },
         },
       ],
-      completedLevels: [false, false, false, false],
       answers: [
         {
           blueAnswer: '',
@@ -194,15 +237,15 @@ const App = {
           }
           if (this.width > 480) {
             if (this.currentLevel != 4) {
-              this.blueStyle = `position:relative; top:calc(-400px + ${top}); left:calc(12px + ${left});`;
+              this.blueStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
             } else {
-              this.blueStyle = `position:relative; bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+              this.blueStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             }
           } else {
             if (this.currentLevel != 4) {
-              this.blueStyle = `position:relative; top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.blueStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             } else {
-              this.blueStyle = `position:relative; bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.blueStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             }
           }
         });
@@ -238,15 +281,15 @@ const App = {
           }
           if (this.width > 480) {
             if (this.currentLevel != 4) {
-              this.redStyle = `position:relative; top:calc(-400px + ${top}); left:calc(12px + ${left});`;
+              this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
             } else {
-              this.redStyle = `position:relative; bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+              this.redStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             }
           } else {
             if (this.currentLevel != 4) {
-              this.redStyle = `position:relative; top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             } else {
-              this.redStyle = `position:relative; bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.redStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             }
           }
         });
@@ -282,20 +325,20 @@ const App = {
           }
           if (this.width > 480) {
             if (this.currentLevel != 4) {
-              this.yellowStyle = `position:relative; top:calc(-400px + ${top}); left:calc(12px + ${left});`;
+              this.yellowStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
             } else {
-              this.yellowStyle = `position:relative; bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+              this.yellowStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             }
           } else {
             if (this.currentLevel != 4) {
-              this.yellowStyle = `position:relative; top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.yellowStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             } else {
-              this.yellowStyle = `position:relative; bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.yellowStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             }
           }
         });
       } else {
-        this.blueStyle = '';
+        this.yellowStyle = '';
       }
     },
     currentLevel(newCurrentLevel) {
@@ -336,9 +379,9 @@ const App = {
       }
     },
     setCurrentLevel(level) {
+      this.playerYellowAnswer = this.answers[level - 1].yellowAnswer;
       this.playerBlueAnswer = this.answers[level - 1].blueAnswer;
       this.playerRedAnswer = this.answers[level - 1].redAnswer;
-      this.playerYellowAnswer = this.answers[level - 1].yellowAnswer;
       this.playerFlowerAnswer = this.answers[level - 1].flowerAnswer;
       this.currentLevel = level;
     },

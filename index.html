@@ -80,6 +80,10 @@
         v-bind:style="yellowStyle"></div>
       <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower"
         v-bind:style="redStyle"></div>
+        <div v-if="levels[currentLevel-1].blueSquare" v-bind:class="levels[currentLevel-1].blueSquare"></div>
+      <div v-if="levels[currentLevel-1].redSquare" v-bind:class="levels[currentLevel-1].redSquare"></div>
+      <div v-if="levels[currentLevel-1].yellowSquare" v-bind:class="levels[currentLevel-1].yellowSquare"></div>
+      <div v-if="levels[currentLevel-1].red2Square" v-bind:class="levels[currentLevel-1].red2Square"></div>
     </aside>
   </div>
   <!--Vue End-->

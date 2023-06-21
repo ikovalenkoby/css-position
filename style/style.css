@@ -75,7 +75,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   font-size: 16px;
 }
 
@@ -108,12 +108,11 @@ html{
 
 .main h1 {
   font-size: 1.75rem;
-  font-family: 'Fredoka';
+  font-family: "Fredoka";
   font-weight: 700;
   margin: 0;
   margin: 10px 0;
   text-indent: 0;
-
 }
 
 .main_content p {
@@ -134,7 +133,6 @@ html{
   margin: 10px 0;
   text-indent: 0;
   border-radius: 5px;
-
 }
 
 .current_level {
@@ -237,30 +235,32 @@ html{
 .level2,
 .level3,
 .level4 {
-  margin: 5px;
-  height: 24px;
-  width: 24px;
+  font-size: 12px;
+  margin: 2px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  border: 1px solid #566573;
+  border: 2px solid #566573;
   background-color: #566573;
   align-self: center;
   justify-self: center;
+  line-height: 26px;
 }
 
 .level1:hover,
 .level2:hover,
 .level3:hover,
 .level4:hover {
-  border: 1px solid #e0e0e0;
+  border: 2px solid #e0e0e0;
 }
 
 .completed_button {
   background-color: green;
-  border: 1px solid green;
+  border: 2px solid green;
 }
 
-.code{
-  font-family: 'Source Code Pro';
+.code {
+  font-family: "Source Code Pro";
   font-weight: 400;
   color: #fff;
   font-size: 1.1rem;
@@ -273,7 +273,7 @@ html{
   background-color: #e0e0e0;
   color: #777;
   padding: 20px;
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
 }
 
 .form_shake {
@@ -282,7 +282,7 @@ html{
 }
 
 .form_input {
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
   font-weight: 400;
   outline: none;
   border: none;
@@ -294,7 +294,7 @@ html{
   resize: none;
 }
 
-.closing_input{
+.closing_input {
   margin-left: 1.2rem;
 }
 
@@ -332,6 +332,7 @@ html{
   position: relative;
   top: -400px;
   left: 12px;
+  z-index: 2;
 }
 
 .flower_level4 {
@@ -354,8 +355,76 @@ html{
   background-image: url(../assets/flower-yellow.svg);
 }
 
+.square_blue {
+  border: 3px solid blue;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  border-top-left-radius: 10px;
+  top: -500px;
+  left: 0px;
+}
+
+.square_blue_level3 {
+  border-top-left-radius: 0px;
+  top: -700px;
+  left: 100px;
+}
+
+.square_blue_level4 {
+  border-top-left-radius: 00px;
+  top: -600px;
+  left: 200px;
+}
+
+.square_red {
+  border: 3px solid red;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  top: -500px;
+  left: 100px;
+}
+
+.square_red_level3 {
+  top: -800px;
+  left: 200px;
+}
+
+.square_red_level4 {
+  top: -800px;
+  left: 100px;
+}
+
+.square_red2 {
+  border: 3px solid red;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  top: -800px;
+  left: 100px;
+}
+
+.square_yellow {
+  border: 3px solid yellow;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+.square_yellow_level3 {
+  border-top-left-radius: 10px;
+  top: -900px;
+  left: 0px;
+}
+
+.square_yellow_level4 {
+  top: -1000px;
+  left: 200px;
+}
+
 @media (max-width: 900px) {
-  html{
+  html {
     font-size: 14px;
   }
 
@@ -363,15 +432,6 @@ html{
     font-size: 1rem;
     top: 52px;
     min-width: 140px;
-  }
-
-  .level1,
-  .level2,
-  .level3,
-  .level4 {
-    margin: 3px;
-    height: 21px;
-    width: 21px;
   }
 
 
@@ -402,16 +462,16 @@ html{
 }
 
 @media (max-width: 480px) {
-.header{
-  gap: 10px;
-}
+  .header {
+    gap: 10px;
+  }
 
-.navigation{
-  margin: 0 auto;
-}
-.main h1{
-  margin: 0 auto;
-}
+  .navigation {
+    margin: 0 auto;
+  }
+  .main h1 {
+    margin: 0 auto;
+  }
 
   .field {
     box-sizing: content-box;
@@ -462,9 +522,69 @@ html{
   .flower_yellow {
     background-image: url(../assets/small/flower-yellow-small.svg);
   }
+
+  .square_blue {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -375px;
+    left: 0px;
+  }
+
+  .square_blue_level3 {
+    top: -525px;
+    left: 75px;
+  }
+
+  .square_blue_level4 {
+    top: -450px;
+    left: 150px;
+  }
+
+  .square_red {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -375px;
+    left: 75px;
+  }
+
+  .square_red_level3 {
+    top: -600px;
+    left: 150px;
+  }
+
+  .square_red_level4 {
+    top: -600px;
+    left: 75px;
+  }
+
+  .square_red2 {
+    height: 75px;
+    width: 75px;
+    position: relative;
+    top: -600px;
+    left: 75px;
+  }
+
+  .square_yellow {
+    height: 75px;
+    width: 75px;
+    position: relative;
+  }
+
+  .square_yellow_level3 {
+    top: -675px;
+    left: 0px;
+  }
+
+  .square_yellow_level4 {
+    top: -750px;
+    left: 150px;
+  }
 }
 
-@media (max-width:407px) {
+@media (max-width: 407px) {
   .wrapper {
     padding: 0;
   }

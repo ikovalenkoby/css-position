@@ -9,7 +9,9 @@ const App = {
             'Добро пожаловать в игру Position. В игру, которая поможет вам понять принципы позиционирования в CSS. Рассмотрим 5 типов позиционирования: static, relative, absolute, fixed и sticky.',
             'По умолчанию все элементы обладают статическим позиционированием, свойства top, right, bottom, left (координаты блока) и z-index ( определение по оси Z) не применяются к таким элементам.',
             'Расположим  один цветок. Для этого в html добавим:',
-            '<div class="flower blue"></div>',
+          ],
+          textHtml: ['<div class="flower blue"></div>'],
+          textAfterHtml: [
             'В css можно добавить для цветка статическое позиционирование, (position: static):',
           ],
           blueAnswer: 'position:static;',
@@ -17,9 +19,6 @@ const App = {
             flower_blue: true,
             flower: true,
             flower_level4: false,
-          },
-          blueButterfly: {
-            butterfly_blue: true,
           },
         },
         {
@@ -30,7 +29,9 @@ const App = {
             'left: задает смещение по горизонтальной оси. Положительное значение элемент смещает вправо, а отрицательное влево.',
             'right: задает смещение по горизонтальной оси. Положительное значение смещает влево, а отрицательное вправо.',
             'Необходимо пересадить красный цветок вправо на одну клетку. Код цветка в HTML:',
-            '<div class="flower red"></div>',
+          ],
+          textHtml: ['<div class="flower red"></div>'],
+          textAfterHtml: [
             'Для смещения необходимо задать цветку относительное позиционирование (position: relative;), это сделает его подвижным относительно его начального местоположения.',
             'Для смещения вправо необходимо задать расстояние смещения через свойство left. Одна клетка имеет размеры 100 пикселей. Таким образом, необходимо задать координату смещения ( left: 100px;)',
           ],
@@ -40,9 +41,6 @@ const App = {
             flower: true,
             flower_level4: false,
           },
-          redButterfly: {
-            butterfly_red: true,
-          },
         },
         {
           text: [
@@ -50,19 +48,18 @@ const App = {
             'Используя относительное позиционирование ( position: relative) и свойства left  и top, помогите пересадить цветы: синий на одну клетку вправо, красный – на две клетки вправо и одну вверх, а желтый на две клетки вверх.',
             'Размер одного квадрата равен 100*100 пикселей.',
             'Код цветов в HTML:',
+          ],
+          textHtml: [
             '<div class="flower blue"></div>',
             '<div class="flower red"></div>',
             '<div class="flower yellow"></div>',
           ],
+          textAfterHtml: [],
           blueAnswer: `position:relative;left:100px;`,
           blueFlower: {
             flower_blue: true,
             flower: true,
             flower_level4: false,
-          },
-          blueButterfly: {
-            butterfly_blue: true,
-            butterfly_blue_level3: true,
           },
           redAnswer: 'position:relative;left:200px;top:-100px;',
           redFlower: {
@@ -70,19 +67,11 @@ const App = {
             flower: true,
             flower_level4: false,
           },
-          redButterfly: {
-            butterfly_red: true,
-            butterfly_red_level3: true,
-          },
           yellowAnswer: 'position:relative;top:-200px;',
           yellowFlower: {
             flower_yellow: true,
             flower: true,
             flower_level4: false,
-          },
-          yellowButterfly: {
-            butterfly_yellow: true,
-            butterfly_yellow_level3: true,
           },
         },
         {
@@ -91,11 +80,14 @@ const App = {
             'Используя относительное позиционирование ( position: relative)  для всех цветов,  свойства bottom и right для каждого, помогите пересадить цветы: синий вправо на две клетки и на две клетки вниз, красные – на одну клетку вправо, а желтый на две клетки вверх и две клетки вправо.',
             'Размер одного квадрата равен 100*100 пикселей.',
             'Код цветов в HTML:',
+          ],
+          textHtml: [
             '<div class="flower blue"></div>',
             '<div class="flower red"></div>',
             '<div class="flower yellow"></div>',
             '<div class="flower red"></div>',
           ],
+          textAfterHtml: [],
           flowerAnswer: 'position:relative;',
           blueAnswer: 'right:-200px;bottom:-200px;',
           blueFlower: {
@@ -103,19 +95,11 @@ const App = {
             flower: false,
             flower_level4: true,
           },
-          blueButterfly: {
-            butterfly_blue: true,
-            butterfly_blue_level4: true,
-          },
           redAnswer: 'right:-100px;',
           redFlower: {
             flower_red: true,
             flower: false,
             flower_level4: true,
-          },
-          redButterfly: {
-            butterfly_red: true,
-            butterfly_red_level4: true,
           },
           yellowAnswer: 'right:-200px;bottom:200px;',
           yellowFlower: {
@@ -123,14 +107,7 @@ const App = {
             flower: false,
             flower_level4: true,
           },
-          yellowButterfly: {
-            butterfly_yellow: true,
-            butterfly_yellow_level4: true,
-          },
           red2Answer: true,
-          red2Butterfly: {
-            butterfly_red2: true,
-          },
         },
       ],
       completedLevels: [false, false, false, false],

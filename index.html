@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" type="text/css" href="./style/style.css" />
   <title>CSS Position</title>
   <script src="./vue/vue.js"></script>
 </head>
+
 <body class="body">
   <!--Vue start-->
   <div id="app" class="wrapper">
@@ -16,7 +25,8 @@
         <h1>CSS POSITION</h1>
         <div class="navigation">
           <span class="left_arrow" @click="prevLevel"></span>
-          <span class="current_level" @click="dropdown = !dropdown">Уровень {{currentLevel}} из {{maxLevel}} &#9662;</span>
+          <span class="current_level" @click="dropdown = !dropdown">Уровень {{currentLevel}} из {{maxLevel}}
+            &#9662;</span>
           <span class="right_arrow" @click="nextLevel"></span>
           <div class="dropdown_content" :class="{show_dropdown:dropdown}">
             <span @click="setCurrentLevel(1)" class="level1" :class="{completed_button:completedLevels[0]}">1</span>
@@ -29,6 +39,10 @@
       </section>
       <section class="main_content" @click="dropdown=false">
         <p v-for="(text, index) in levels[currentLevel-1].text" :key="index">{{text}}</p>
+        <div class="code">
+          <p v-for="(text, index) in levels[currentLevel-1].textHtml" :key="index">{{text}}</p>
+        </div>
+        <p v-for="(text, index) in levels[currentLevel-1].textAfterHtml" :key="index">{{text}}</p>
         <form @submit.prevent="onSubmit" v-bind:class="form">
           <div v-if="levels[currentLevel-1].flowerAnswer">
             <span>.flower {</span>
@@ -58,17 +72,18 @@
       <div class="squares">
         <img src="./assets/bg.svg" alt="square" class="square" v-for="n in (1,16)" :key="n">
       </div>
-      <div v-if="levels[currentLevel-1].blueAnswer" v-bind:class="levels[currentLevel-1].blueFlower" v-bind:style="blueStyle"></div>
-      <div v-if="levels[currentLevel-1].redAnswer" v-bind:class="levels[currentLevel-1].redFlower" v-bind:style="redStyle"></div>
-      <div v-if="levels[currentLevel-1].yellowAnswer" v-bind:class="levels[currentLevel-1].yellowFlower" v-bind:style="yellowStyle"></div>
-      <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower" v-bind:style="redStyle"></div>
-      <div v-if="levels[currentLevel-1].blueButterfly" v-bind:class="levels[currentLevel-1].blueButterfly"></div>
-      <div v-if="levels[currentLevel-1].redButterfly" v-bind:class="levels[currentLevel-1].redButterfly"></div>
-      <div v-if="levels[currentLevel-1].yellowButterfly" v-bind:class="levels[currentLevel-1].yellowButterfly"></div>
-      <div v-if="levels[currentLevel-1].red2Butterfly" v-bind:class="levels[currentLevel-1].red2Butterfly"></div>
+      <div v-if="levels[currentLevel-1].blueAnswer" v-bind:class="levels[currentLevel-1].blueFlower"
+        v-bind:style="blueStyle"></div>
+      <div v-if="levels[currentLevel-1].redAnswer" v-bind:class="levels[currentLevel-1].redFlower"
+        v-bind:style="redStyle"></div>
+      <div v-if="levels[currentLevel-1].yellowAnswer" v-bind:class="levels[currentLevel-1].yellowFlower"
+        v-bind:style="yellowStyle"></div>
+      <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower"
+        v-bind:style="redStyle"></div>
     </aside>
   </div>
   <!--Vue End-->
   <script src="./app.js"></script>
 </body>
+
 </html>

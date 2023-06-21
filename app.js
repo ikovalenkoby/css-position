@@ -23,8 +23,8 @@ const App = {
           },
           blueSquare: {
             square_blue: true,
-            square_blue_level3:false,
-            square_blue_level4:false
+            square_blue_level3: false,
+            square_blue_level4: false,
           },
         },
         {
@@ -49,8 +49,8 @@ const App = {
           },
           redSquare: {
             square_red: true,
-            square_red_level3:false,
-            square_red_level4:false
+            square_red_level3: false,
+            square_red_level4: false,
           },
         },
         {
@@ -74,8 +74,8 @@ const App = {
           },
           blueSquare: {
             square_blue: true,
-            square_blue_level3:true,
-            square_blue_level4:false
+            square_blue_level3: true,
+            square_blue_level4: false,
           },
           redAnswer: 'position:relative;left:200px;top:-100px;',
           redFlower: {
@@ -85,8 +85,8 @@ const App = {
           },
           redSquare: {
             square_red: true,
-            square_red_level3:true,
-            square_red_level4:false
+            square_red_level3: true,
+            square_red_level4: false,
           },
           yellowAnswer: 'position:relative;top:-200px;',
           yellowFlower: {
@@ -96,8 +96,8 @@ const App = {
           },
           yellowSquare: {
             square_yellow: true,
-            square_yellow_level3:true,
-            square_yellow_level4:false
+            square_yellow_level3: true,
+            square_yellow_level4: false,
           },
         },
         {
@@ -123,8 +123,8 @@ const App = {
           },
           blueSquare: {
             square_blue: true,
-            square_blue_level3:false,
-            square_blue_level4:true
+            square_blue_level3: false,
+            square_blue_level4: true,
           },
           redAnswer: 'right:-100px;',
           redFlower: {
@@ -134,8 +134,8 @@ const App = {
           },
           redSquare: {
             square_red: true,
-            square_red_level3:false,
-            square_red_level4:true
+            square_red_level3: false,
+            square_red_level4: true,
           },
           yellowAnswer: 'right:-200px;bottom:200px;',
           yellowFlower: {
@@ -145,8 +145,8 @@ const App = {
           },
           yellowSquare: {
             square_yellow: true,
-            square_yellow_level3:false,
-            square_yellow_level4:true
+            square_yellow_level3: false,
+            square_yellow_level4: true,
           },
           red2Answer: true,
           red2Square: {
@@ -400,37 +400,39 @@ const App = {
       this.setCurrentLevel(prevLevel);
     },
     reset() {
-      this.completedLevels = [false, false, false, false];
-      this.answers = [
-        {
-          blueAnswer: '',
-          redAnswer: '',
-          yellowAnswer: '',
-          flowerAnswer: '',
-        },
-        {
-          blueAnswer: '',
-          redAnswer: '',
-          yellowAnswer: '',
-          flowerAnswer: '',
-        },
-        {
-          blueAnswer: '',
-          redAnswer: '',
-          yellowAnswer: '',
-          flowerAnswer: '',
-        },
-        {
-          blueAnswer: '',
-          redAnswer: '',
-          yellowAnswer: '',
-          flowerAnswer: '',
-        },
-      ];
-      this.playerBlueAnswer = '';
-      this.playerRedAnswer = '';
-      this.playerYellowAnswer = '';
-      this.playerFlowerAnswer = '';
+      if (confirm('Сбросить прогресс?')) {
+        this.completedLevels = [false, false, false, false];
+        this.answers = [
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            flowerAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            flowerAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            flowerAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            flowerAnswer: '',
+          },
+        ];
+        this.playerBlueAnswer = '';
+        this.playerRedAnswer = '';
+        this.playerYellowAnswer = '';
+        this.playerFlowerAnswer = '';
+      }
     },
     completeLevel() {
       let completed = 0;

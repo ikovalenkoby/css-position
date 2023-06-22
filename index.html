@@ -33,6 +33,7 @@
             <span @click="setCurrentLevel(2)" class="level2" :class="{completed_button:completedLevels[1]}">2</span>
             <span @click="setCurrentLevel(3)" class="level3" :class="{completed_button:completedLevels[2]}">3</span>
             <span @click="setCurrentLevel(4)" class="level4" :class="{completed_button:completedLevels[3]}">4</span>
+            <span @click="setCurrentLevel(5)" class="level5" :class="{completed_button:completedLevels[4]}">5</span>
             <span @click="reset" class="reset">Сбросить</span>
           </div>
         </div>
@@ -64,6 +65,26 @@
             <textarea type="text" required v-model="playerYellowAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
+          <div v-if="levels[currentLevel-1].fieldAnswer">
+            <span>.field {</span>
+            <textarea type="text" required v-model="playerFieldAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].yellowButterflyAnswer">
+            <span>.butterfly.yellow {</span>
+            <textarea type="text" required v-model="playerYellowButterflyAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].redButterflyAnswer">
+            <span>.butterfly.red {</span>
+            <textarea type="text" required v-model="playerRedButterflyAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].blueButterflyAnswer">
+            <span>.butterfly.blue {</span>
+            <textarea type="text" required v-model="playerBlueButterflyAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
           <button type="submit" class="submit_button">Следующий</button>
         </form>
       </section>
@@ -72,22 +93,30 @@
       <div class="squares">
         <img src="./assets/bg.svg" alt="square" class="square" v-for="n in (1,16)" :key="n">
       </div>
-      <div v-if="levels[currentLevel-1].blueAnswer" v-bind:class="levels[currentLevel-1].blueFlower"
-        v-bind:style="blueStyle"></div>
-      <div v-if="levels[currentLevel-1].redAnswer" v-bind:class="levels[currentLevel-1].redFlower"
-        v-bind:style="redStyle"></div>
-      <div v-if="levels[currentLevel-1].yellowAnswer" v-bind:class="levels[currentLevel-1].yellowFlower"
-        v-bind:style="yellowStyle"></div>
+      <div v-if="levels[currentLevel-1].blueFlower" v-bind:class="levels[currentLevel-1].blueFlower"
+        v-bind:style="blueStyle" :class="{level_solved:completedLevels[currentLevel-1]}"></div>
+      <div v-if="levels[currentLevel-1].redFlower" v-bind:class="levels[currentLevel-1].redFlower"
+        v-bind:style="redStyle" :class="{level_solved:completedLevels[currentLevel-1]}"></div>
+      <div v-if="levels[currentLevel-1].yellowFlower" v-bind:class="levels[currentLevel-1].yellowFlower"
+        v-bind:style="yellowStyle" :class="{level_solved:completedLevels[currentLevel-1]}"></div>
       <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower"
-        v-bind:style="redStyle"></div>
+        v-bind:style="redStyle" :class="{level_solved:completedLevels[currentLevel-1]}"></div>
       <div v-if="levels[currentLevel-1].blueSquare" v-bind:class="levels[currentLevel-1].blueSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
+        :class="{level_solved:completedLevels[currentLevel-1]}" class="square"></div>
       <div v-if="levels[currentLevel-1].redSquare" v-bind:class="levels[currentLevel-1].redSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
+        :class="{level_solved:completedLevels[currentLevel-1]}" class="square"></div>
       <div v-if="levels[currentLevel-1].yellowSquare" v-bind:class="levels[currentLevel-1].yellowSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
+        :class="{level_solved:completedLevels[currentLevel-1]}" class="square"></div>
       <div v-if="levels[currentLevel-1].red2Square" v-bind:class="levels[currentLevel-1].red2Square"
-        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
+        :class="{level_solved:completedLevels[currentLevel-1]}" class="square"></div>
+      <div v-if="levels[currentLevel-1].blueButterfly" v-bind:class="levels[currentLevel-1].blueButterfly"
+        v-bind:style="blueButterflyStyle"></div>
+      <div v-if="levels[currentLevel-1].redButterfly" v-bind:class="levels[currentLevel-1].redButterfly"
+        v-bind:style="redButterflyStyle"></div>
+      <div v-if="levels[currentLevel-1].yellowButterfly" v-bind:class="levels[currentLevel-1].yellowButterfly"
+        v-bind:style="yellowButterflyStyle"></div>
+      <div v-if="levels[currentLevel-1].red2Butterfly" v-bind:class="levels[currentLevel-1].red2Butterfly"
+        v-bind:style="redButterflyStyle"></div>
     </aside>
   </div>
   <!--Vue End-->

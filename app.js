@@ -174,12 +174,15 @@ const App = {
             flower_blue: true,
             flower: true,
             flower_blue_level5: true,
-            flower_animation:true
           },
           blueButterfly: {
             butterfly: true,
             butterfly_blue: true,
             butterfly_blue_level5: true,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level5: true,
           },
         },
       ],
@@ -529,15 +532,15 @@ const App = {
           }
           if (this.width > 480) {
             if (this.currentLevel != 0) {
-              this.blueButterflyStyle = `top:calc(-327px - ${top}); left:calc(50px + ${left});`;
+              this.blueButterflyStyle = `top:calc(-427px - ${top}); left:calc(50px + ${left});`;
             } else {
-              this.blueButterflyStyle = `bottom:calc(327px + ${bottom}); right:calc(-50px + ${right});`;
+              this.blueButterflyStyle = `bottom:calc(427px + ${bottom}); right:calc(-50px + ${right});`;
             }
           } else {
             if (this.currentLevel != 0) {
-              this.blueButterflyStyle = `top:calc(-245px - calc(${top} * 0.75)); left:calc(38px + calc(${left} * 0.75));`;
+              this.blueButterflyStyle = `top:calc(-320px - calc(${top} * 0.75)); left:calc(38px + calc(${left} * 0.75));`;
             } else {
-              this.blueButterflyStyle = `bottom:calc(245px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
+              this.blueButterflyStyle = `bottom:calc(320px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
             }
           }
         });

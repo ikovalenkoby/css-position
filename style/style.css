@@ -523,22 +523,21 @@ html {
 }
 
 .butterfly{
-  height: 100px;
-  width: 50px;
+  height: 80px;
+  width: 100px;
   position: relative;
-  top: -327px;
+  top: -300px;
   left: 50px;
 }
 
 .butterfly_blue {
   background-image: url(../assets/butterfly-blue.svg);
   top: 0px;
-  left: 50px;
 }
 
 .butterfly_blue_level5 {
-  top: -427px;
-  left: 50px;
+  top: -300px;
+  left: 0px;
 }
 
 .butterfly_red {
@@ -557,7 +556,6 @@ html {
 .butterfly_yellow {
   background-image: url(../assets/butterfly-yellow.svg);
   top: -520px;
-  left: 50px;
 }
 
 .level_solved {
@@ -712,59 +710,31 @@ html {
   }
 
   .butterfly{
-    height: 75px;
-    width: 38px;
+    height: 61px;
+    width: 75px;
     position: relative;
     z-index: 2;
   }
 
   .butterfly_blue {
     background-image: url(../assets/small/butterfly-blue-small.svg);
-    top: -395px;
-    left: 38px;
   }
 
   .butterfly_blue_level5 {
-    top: -320px;
-    left: 38px;
+    top: -300px;
+    left: 0;
   }
 
   .butterfly_red {
     background-image: url(../assets/small/butterfly-red-small.svg);
-    top: -395px;
-    left: 113px;
-  }
-
-  .butterfly_red_level3 {
-    top: -620px;
-    left: 188px;
-  }
-
-  .butterfly_red_level4 {
-    top: -620px;
-    left: 113px;
   }
 
   .butterfly_red2 {
     background-image: url(../assets/small/butterfly-red-small.svg);
-    top: -620px;
-    left: 113px;
   }
 
   .butterfly_yellow {
     background-image: url(../assets/small/butterfly-yellow-small.svg);
-    top: -520px;
-    left: 50px;
-  }
-
-  .butterfly_yellow_level3 {
-    top: -695px;
-    left: 38px;
-  }
-
-  .butterfly_yellow_level4 {
-    top: -765px;
-    left: 188px;
   }
 }
 

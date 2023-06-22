@@ -532,15 +532,15 @@ const App = {
           }
           if (this.width > 480) {
             if (this.currentLevel != 0) {
-              this.blueButterflyStyle = `top:calc(-427px - ${top}); left:calc(50px + ${left});`;
+              this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
             } else {
-              this.blueButterflyStyle = `bottom:calc(427px + ${bottom}); right:calc(-50px + ${right});`;
+              this.blueButterflyStyle = `bottom:calc(400px + ${bottom}); right:${right};`;
             }
           } else {
             if (this.currentLevel != 0) {
-              this.blueButterflyStyle = `top:calc(-320px - calc(${top} * 0.75)); left:calc(38px + calc(${left} * 0.75));`;
+              this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             } else {
-              this.blueButterflyStyle = `bottom:calc(320px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
+              this.blueButterflyStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(${right} * 0.75);`;
             }
           }
         });

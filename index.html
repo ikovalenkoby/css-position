@@ -81,13 +81,13 @@
       <div v-if="levels[currentLevel-1].red2Answer" v-bind:class="levels[currentLevel-1].redFlower"
         v-bind:style="redStyle"></div>
       <div v-if="levels[currentLevel-1].blueSquare" v-bind:class="levels[currentLevel-1].blueSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"></div>
+        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
       <div v-if="levels[currentLevel-1].redSquare" v-bind:class="levels[currentLevel-1].redSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"></div>
+        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
       <div v-if="levels[currentLevel-1].yellowSquare" v-bind:class="levels[currentLevel-1].yellowSquare"
-        :class="{square_solved:completedLevels[currentLevel-1]}"></div>
+        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
       <div v-if="levels[currentLevel-1].red2Square" v-bind:class="levels[currentLevel-1].red2Square"
-        :class="{square_solved:completedLevels[currentLevel-1]}"></div>
+        :class="{square_solved:completedLevels[currentLevel-1]}"  class="square"></div>
     </aside>
   </div>
   <!--Vue End-->

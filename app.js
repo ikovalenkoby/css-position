@@ -151,6 +151,7 @@ const App = {
           red2Answer: true,
           red2Square: {
             square_red2: true,
+            square_red:true
           },
         },
       ],

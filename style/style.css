@@ -150,7 +150,7 @@
   --shadow-yellow: yellow;
   --shadow-red: red;
   --level-border: #566573;
-  --level-hover:#fff;
+  --level-hover: #fff;
   --completed-level: green;
   --arrows: rgba(255, 255, 255, 0.7);
   --form: #e0e0e0;
@@ -301,6 +301,12 @@ html {
 .level5 {
   grid-area: 2 / 1 / 3 / 2;
 }
+.level6 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.level7 {
+  grid-area: 2 / 3 / 3 / 4;
+}
 
 .reset {
   grid-area: 3 / 1 / 4 / 5;
@@ -316,6 +322,8 @@ html {
 .level3,
 .level4,
 .level5,
+.level6,
+.level7,
 .reset {
   cursor: pointer;
   text-align: center;
@@ -324,8 +332,10 @@ html {
 .level1,
 .level2,
 .level3,
-.level4, 
-.level5{
+.level4,
+.level5,
+.level6,
+.level7 {
   font-size: 12px;
   margin: 2px;
   height: 30px;
@@ -342,7 +352,9 @@ html {
 .level2:hover,
 .level3:hover,
 .level4:hover,
-.level5:hover {
+.level5:hover,
+.level6:hover,
+.level7:hover {
   border: 2px solid var(--level-hover);
 }
 
@@ -353,7 +365,6 @@ html {
 
 .code {
   font-family: "Source Code Pro";
-  font-weight: 400;
   color: var(--light-font);
   font-size: 1.1rem;
   font-weight: 600;
@@ -422,8 +433,6 @@ html {
   height: 100px;
   width: 75px;
   position: relative;
-  top: -400px;
-  left: 12px;
 }
 
 .flower_level4 {
@@ -434,22 +443,58 @@ html {
   right: -12px;
 }
 
+.flower_blue {
+  background-image: url(../assets/flower-blue.svg);
+  top: -400px;
+  left: 12px;
+}
+
 .flower_blue_level5 {
   top: -300px;
   left: 12px;
 }
 
+.flower_blue_level6 {
+  top: -300px;
+  left: 112px;
+}
 
-.flower_blue {
-  background-image: url(../assets/flower-blue.svg);
+.flower_blue_level7 {
+  top: -200px;
+  left: 12px;
 }
 
 .flower_red {
   background-image: url(../assets/flower-red.svg);
+  top: -400px;
+  left: 12px;
+}
+
+.flower_red_level7{
+  top: -400px;
+  left: 12px;
 }
 
 .flower_yellow {
   background-image: url(../assets/flower-yellow.svg);
+}
+
+.flower_yellow_level3{
+  top: -400px;
+  left: 12px;
+}
+
+.flower_yellow_level6 {
+  top: -200px;
+  left: 312px;
+}
+
+.flower_yellow_level7 {
+  height: 100px;
+  width: 75px;
+  position: relative;
+  bottom: 300px;
+  right: -12px;
 }
 
 .square {
@@ -484,6 +529,18 @@ html {
   left: 0px;
 }
 
+.square_blue_level6 {
+  border-top-left-radius: 0px;
+  top: -500px;
+  left: 100px;
+}
+
+.square_blue_level7 {
+  border-top-left-radius: 0px;
+  top: -600px;
+  left: 100px;
+}
+
 .square_red {
   box-shadow: inset 0 0 7px 4px var(--shadow-red);
   top: -500px;
@@ -499,6 +556,11 @@ html {
 .square_red_level4 {
   top: -800px;
   left: 100px;
+}
+
+.square_red_level7 {
+  top: -700px;
+  left: 300px;
 }
 
 .square_red2 {
@@ -522,21 +584,38 @@ html {
   left: 200px;
 }
 
-.butterfly{
+.square_yellow_level6 {
+  top: -400px;
+  left: 300px;
+}
+
+.square_yellow_level7 {
+  top: -700px;
+  left: 200px;
+}
+
+.butterfly {
   height: 80px;
   width: 100px;
   position: relative;
-  top: -300px;
-  left: 50px;
 }
 
 .butterfly_blue {
   background-image: url(../assets/butterfly-blue.svg);
-  top: 0px;
 }
 
 .butterfly_blue_level5 {
-  top: -300px;
+  top: -400px;
+  left: 0px;
+}
+
+.butterfly_blue_level6 {
+  top: -800px;
+  left: 0px;
+}
+
+.butterfly_blue_level7 {
+  top: -1000px;
   left: 0px;
 }
 
@@ -546,6 +625,10 @@ html {
   left: 150px;
 }
 
+.butterfly_red_level7 {
+  top: -1080px;
+  left: 100px;
+}
 
 .butterfly_red2 {
   background-image: url(../assets/butterfly-red.svg);
@@ -555,11 +638,52 @@ html {
 
 .butterfly_yellow {
   background-image: url(../assets/butterfly-yellow.svg);
-  top: -520px;
+}
+
+.butterfly_yellow_level6 {
+  bottom:780px;
+  right: 0px;
+}
+
+.butterfly_yellow_level7 {
+  bottom:1060px;
+  right: -100px;
 }
 
 .level_solved {
   animation: none;
+}
+
+.accordion {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+}
+
+.accordion:after {
+  content: '+';
+  font-size: 18px;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion_active:after {
+  content: '-';
+  font-size: 18px;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion_panel {
+  padding: 0 18px;
+  overflow: hidden;
+  font-family: "Source Code Pro";
+  color: var(--light-font);
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -647,6 +771,16 @@ html {
     left: 9px;
   }
 
+  .flower_blue_level6 {
+    top: -225px;
+    left: 84px;
+  }
+
+  .flower_blue_level7 {
+    top: -150px;
+    left: 9px;
+  }
+
   .flower_blue {
     background-image: url(../assets/small/flower-blue-small.svg);
   }
@@ -655,8 +789,26 @@ html {
     background-image: url(../assets/small/flower-red-small.svg);
   }
 
+  .flower_red_level7{
+    top: -300px;
+    left: 9px;
+  }
+
   .flower_yellow {
     background-image: url(../assets/small/flower-yellow-small.svg);
+    height: 75px;
+    width: 56px;
+    position: relative;
+  }
+
+  .flower_yellow_level6 {
+    top: -150px;
+    left: 234px;
+  }
+
+  .flower_yellow_level7 {
+    bottom: 225px;
+    right: -9px;
   }
 
   .square_blue {
@@ -679,6 +831,16 @@ html {
     left: 0px;
   }
 
+  .square_blue_level6 {
+    top: -375px;
+    left: 75px;
+  }
+
+  .square_blue_level7 {
+    top: -450px;
+    left: 75px;
+  }
+
   .square_red {
     top: -375px;
     left: 75px;
@@ -692,6 +854,11 @@ html {
   .square_red_level4 {
     top: -600px;
     left: 75px;
+  }
+
+  .square_red_level7 {
+    top: -525px;
+    left: 225px;
   }
 
   .square_red2 {
@@ -709,7 +876,17 @@ html {
     left: 150px;
   }
 
-  .butterfly{
+  .square_yellow_level6 {
+    top: -300px;
+    left: 225px;
+  }
+
+  .square_yellow_level7 {
+    top: -525px;
+    left: 150px;
+  }
+
+  .butterfly {
     height: 61px;
     width: 75px;
     position: relative;
@@ -725,8 +902,24 @@ html {
     left: 0;
   }
 
+  .butterfly_blue_level6 {
+    top: -600px;
+    left: 0;
+  }
+
+  .butterfly_blue_level7 {
+    top: -750px;
+    left: 0;
+  }
+
+
   .butterfly_red {
     background-image: url(../assets/small/butterfly-red-small.svg);
+  }
+
+  .butterfly_red_level7 {
+    top: -810px;
+    left: 75px;
   }
 
   .butterfly_red2 {
@@ -735,6 +928,16 @@ html {
 
   .butterfly_yellow {
     background-image: url(../assets/small/butterfly-yellow-small.svg);
+  }
+
+  .butterfly_yellow_level6 {
+    bottom:585px;
+    right: 0px;
+  }
+
+  .butterfly_yellow_level7 {
+    bottom:795px;
+    right: -75px;
   }
 }
 

@@ -2,8 +2,8 @@ const App = {
   data() {
     return {
       currentLevel: 1,
-      maxLevel: 5,
-      completedLevels: [false, false, false, false, false],
+      maxLevel: 7,
+      completedLevels: [false, false, false, false, false, false, false],
       levels: [
         {
           text: [
@@ -19,12 +19,9 @@ const App = {
           blueFlower: {
             flower_blue: true,
             flower: true,
-            flower_level4: false,
           },
           blueSquare: {
             square_blue: true,
-            square_blue_level3: false,
-            square_blue_level4: false,
           },
         },
         {
@@ -45,12 +42,9 @@ const App = {
           redFlower: {
             flower_red: true,
             flower: true,
-            flower_level4: false,
           },
           redSquare: {
             square_red: true,
-            square_red_level3: false,
-            square_red_level4: false,
           },
         },
         {
@@ -75,29 +69,25 @@ const App = {
           blueSquare: {
             square_blue: true,
             square_blue_level3: true,
-            square_blue_level4: false,
           },
           redAnswer: 'position:relative;left:200px;top:-100px;',
           redFlower: {
             flower_red: true,
             flower: true,
-            flower_level4: false,
           },
           redSquare: {
             square_red: true,
             square_red_level3: true,
-            square_red_level4: false,
           },
           yellowAnswer: 'position:relative;top:-200px;',
           yellowFlower: {
             flower_yellow: true,
             flower: true,
-            flower_level4: false,
+            flower_yellow_level3: true,
           },
           yellowSquare: {
             square_yellow: true,
             square_yellow_level3: true,
-            square_yellow_level4: false,
           },
         },
         {
@@ -118,34 +108,28 @@ const App = {
           blueAnswer: 'right:-200px;bottom:-200px;',
           blueFlower: {
             flower_blue: true,
-            flower: false,
             flower_level4: true,
           },
           blueSquare: {
             square_blue: true,
-            square_blue_level3: false,
             square_blue_level4: true,
           },
           redAnswer: 'right:-100px;',
           redFlower: {
             flower_red: true,
-            flower: false,
             flower_level4: true,
           },
           redSquare: {
             square_red: true,
-            square_red_level3: false,
             square_red_level4: true,
           },
           yellowAnswer: 'right:-200px;bottom:200px;',
           yellowFlower: {
             flower_yellow: true,
-            flower: false,
             flower_level4: true,
           },
           yellowSquare: {
             square_yellow: true,
-            square_yellow_level3: false,
             square_yellow_level4: true,
           },
           red2Answer: true,
@@ -185,8 +169,142 @@ const App = {
             square_blue_level5: true,
           },
         },
+        {
+          text: [
+            'Используя абсолютное позиционирование ( position: absolute), помогите попасть бабочкам на свои любимые цветы. Используйте свойство top (задание координат от верхнего края поля) и left (задание координат от левого края) для синей бабочки, а свойство bottom ( задание координат от нижнего края поля) и right (задание координат от правого края поля) для желтой бабочки.',
+            '*размер одного квадрата равен 100*100 пикселей',
+            'Код цветов в HTML:',
+          ],
+          textHtml: [
+            '<div class="field">',
+            '<div class="flower blue"></div>',
+            '<div class="butterfly blue"></div>',
+            '<div class=" flower yellow "></div>',
+            '<div class=" butterfly yellow "></div>',
+            '</div>',
+          ],
+          textAfterHtml: [],
+          blueButterflyAnswer: 'position:absolute;top:100px;left:100px;',
+          yellowButterflyAnswer: 'position:absolute;bottom:0;right:0;',
+          fieldAnswer: 'position:relative;',
+          blueFlower: {
+            flower_blue: true,
+            flower: true,
+            flower_blue_level6: true,
+          },
+          blueButterfly: {
+            butterfly: true,
+            butterfly_blue: true,
+            butterfly_blue_level6: true,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level6: true,
+          },
+          yellowFlower: {
+            flower_yellow: true,
+            flower: true,
+            flower_yellow_level6: true,
+          },
+          yellowButterfly: {
+            butterfly: true,
+            butterfly_yellow: true,
+            butterfly_yellow_level6: true,
+          },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level6: true,
+          },
+        },
+        {
+          text: [
+            'Разместите бабочки и цветы в указанные клетки. Для цветов установите относительное позиционирование ( position: relative), а для бабочек – абсолютное ( position: absolute). Используйте свойство top (задание координат от верхнего края поля) и left (задание координат от левого края) для синей и красной бабочки и цветка, а свойство bottom ( задание координат от нижнего края поля) и right (задание координат от правого края поля) для желтого цветка и бабочки. Для поля уже установлено относительное позиционирование ( position: relative).',
+            '*размер одного квадрата равен 100*100 пикселей',
+          ],
+          textHtml: [],
+          accordion: `Код цветов в HTML:`,
+          accordionText: [
+            '<div class="field">',
+            '<div class="flower blue"></div>',
+            '<div class="butterfly blue"></div>',
+            '<div class=" flower yellow "></div>',
+            '<div class=" butterfly yellow "></div>',
+            '<div class=" flower red "></div>',
+            '<div class=" butterfly red "></div>',
+            '</div>',
+          ],
+          accordionActive:false,
+          textAfterHtml: [],
+          blueButterflyAnswer: 'position:absolute;top:100px;left:100px;',
+          redButterflyAnswer: 'position:absolute;left:300px;top:100px;',
+          yellowButterflyAnswer: 'position:absolute;bottom:100px;right:100px;',
+          blueAnswer: 'position:relative;top:-100px;left:100px;',
+          redAnswer: 'position:relative;left:300px;',
+          yellowAnswer: 'position:relative;bottom:100px;right:-200px;',
+          blueFlower: {
+            flower_blue: true,
+            flower: true,
+            flower_blue_level7: true,
+          },
+          blueButterfly: {
+            butterfly: true,
+            butterfly_blue: true,
+            butterfly_blue_level7: true,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level7: true,
+          },
+          redFlower: {
+            flower_red: true,
+            flower: true,
+            flower_red_level7: true,
+          },
+          redButterfly: {
+            butterfly: true,
+            butterfly_red: true,
+            butterfly_red_level7: true,
+          },
+          redSquare: {
+            square_red: true,
+            square_red_level7: true,
+          },
+          yellowFlower: {
+            flower_yellow: true,
+            flower_yellow_level7: true,
+          },
+          yellowButterfly: {
+            butterfly: true,
+            butterfly_yellow: true,
+            butterfly_yellow_level7: true,
+          },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level7: true,
+          },
+        },
       ],
       answers: [
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+        },
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+        },
         {
           blueAnswer: '',
           redAnswer: '',
@@ -243,7 +361,7 @@ const App = {
       yellowStyle: '',
       blueButterflyStyle: '',
       redButterflyStyle: '',
-      yellowStyle: '',
+      yellowButterflyStyle: '',
       playerBlueAnswer: '',
       playerRedAnswer: '',
       playerFlowerAnswer: '',
@@ -308,16 +426,20 @@ const App = {
               .replaceAll(' ', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.blueStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else {
+            } else if (this.currentLevel == 4) {
               this.blueStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+            } else if (this.currentLevel == 7) {
+              this.blueStyle = `top:calc(-200px + ${top}); left:calc(12px + ${left});`;
             }
           } else {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.blueStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else {
+            } else if (this.currentLevel == 4) {
               this.blueStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+            } else if (this.currentLevel == 7) {
+              this.blueStyle = `top:calc(-150px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             }
           }
         });
@@ -352,16 +474,20 @@ const App = {
               .replaceAll(' ', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else {
+            } else if(this.currentLevel == 4) {
               this.redStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+            } else if (this.currentLevel == 7) {
+              this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
             }
           } else {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else {
+            } else if(this.currentLevel == 4) {
               this.redStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+            }else if (this.currentLevel == 7) {
+              this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             }
           }
         });
@@ -396,16 +522,20 @@ const App = {
               .replaceAll(' ', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.yellowStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else {
+            } else  if(this.currentLevel == 4){
               this.yellowStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
+            } else if (this.currentLevel == 7) {
+              this.yellowStyle = `bottom:calc(300px + ${bottom}); right:calc(-12px + ${right});`;
             }
           } else {
-            if (this.currentLevel != 4) {
+            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.yellowStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else {
+            } else if(this.currentLevel == 4){
               this.yellowStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+            } else if (this.currentLevel == 7) {
+              this.yellowStyle = `bottom:calc(225px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             }
           }
         });
@@ -416,8 +546,7 @@ const App = {
     playerYellowButterflyAnswer(newPlayerYellowButterflyAnswer) {
       if (
         newPlayerYellowButterflyAnswer.includes('absolute') ||
-        newPlayerYellowButterflyAnswer.includes('fixed') ||
-        this.playerFieldAnswer.includes('relative')
+          newPlayerYellowButterflyAnswer.includes('fixed')
       ) {
         let words = newPlayerYellowButterflyAnswer.split(';');
         let top = '0';
@@ -431,26 +560,36 @@ const App = {
             bottom = el
               .replace('bottom', '')
               .replace(':', '')
+              .replace('px', '')
               .replaceAll(' ', '');
+            if (this.currentLevel == 6 || this.currentLevel == 7) {
+              bottom = -200 + Number.parseInt(bottom);
+            }
           } else if (el.includes('left')) {
             left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
           } else if (el.includes('right')) {
             right = el
               .replace('right', '')
               .replace(':', '')
+              .replace('px', '')
               .replaceAll(' ', '');
+            if (this.currentLevel == 6) {
+              right = -300 + Number.parseInt(right);
+            }else if(this.currentLevel == 7){
+              right = -200 + Number.parseInt(right);
+            }
           }
           if (this.width > 480) {
-            if (this.currentLevel != 0) {
-              this.yellowButterflyStyle = `top:calc(-327px + ${top}); left:calc(50px + ${left});`;
-            } else {
-              this.yellowButterflyStyle = `bottom:calc(327px + ${bottom}); right:calc(-50px + ${right});`;
+            if (this.currentLevel == 6) {
+              this.yellowButterflyStyle = `bottom:calc(780px + ${bottom}px); right:${right}px;`;
+            } else if(this.currentLevel == 7) {
+              this.yellowButterflyStyle = `bottom:calc(1060px + ${bottom}px); right:calc(${right}px - 100px);`;
             }
           } else {
-            if (this.currentLevel != 0) {
-              this.yellowButterflyStyle = `top:calc(-245px + calc(${top} * 0.75)); left:calc(38px + calc(${left} * 0.75));`;
-            } else {
-              this.yellowButterflyStyle = `bottom:calc(245px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
+            if (this.currentLevel == 6) {
+              this.yellowButterflyStyle = `bottom:calc(585px + calc(${bottom}px * 0.75)); right:calc(${right}px * 0.75);`;
+            } else if(this.currentLevel == 7){
+              this.yellowButterflyStyle = `bottom:calc(795px + calc(${bottom} * 0.75)); right:calc(-75px + calc(${right} * 0.75));`;
             }
           }
         });
@@ -461,8 +600,7 @@ const App = {
     playerRedButterflyAnswer(newPlayerRedButterflyAnswer) {
       if (
         newPlayerRedButterflyAnswer.includes('absolute') ||
-        newPlayerRedButterflyAnswer.includes('fixed') &&
-        this.playerFieldAnswer.includes('relative')
+        newPlayerRedButterflyAnswer.includes('fixed')
       ) {
         let words = newPlayerRedButterflyAnswer.split(';');
         let top = '0';
@@ -486,14 +624,14 @@ const App = {
               .replaceAll(' ', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel != 0) {
-              this.redButterflyStyle = `top:calc(-327px + ${top}); left:calc(50px + ${left});`;
+            if (this.currentLevel == 7) {
+              this.redButterflyStyle = `top:calc(-1080px + ${top}); left:calc(0px + ${left});`;
             } else {
               this.redButterflyStyle = `bottom:calc(327px + ${bottom}); right:calc(-50px + ${right});`;
             }
           } else {
-            if (this.currentLevel != 0) {
-              this.redButterflyStyle = `top:calc(-245px + calc(${top} * 0.75)); left:calc(38px + calc(${left} * 0.75));`;
+            if (this.currentLevel == 7) {
+              this.redButterflyStyle = `top:calc(-810px + calc(${top} * 0.75)); left:calc(0px + calc(${left} * 0.75));`;
             } else {
               this.redButterflyStyle = `bottom:calc(245px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
             }
@@ -505,9 +643,8 @@ const App = {
     },
     playerBlueButterflyAnswer(newPlayerBlueButterflyAnswer) {
       if (
-        (newPlayerBlueButterflyAnswer.includes('absolute') ||
-        newPlayerBlueButterflyAnswer.includes('fixed')) &&
-        this.playerFieldAnswer.includes('relative')
+        newPlayerBlueButterflyAnswer.includes('absolute') ||
+          newPlayerBlueButterflyAnswer.includes('fixed')
       ) {
         let words = newPlayerBlueButterflyAnswer.split(';');
         let top = '0';
@@ -531,16 +668,20 @@ const App = {
               .replaceAll(' ', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel != 0) {
+            if (this.currentLevel == 5) {
               this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
-            } else {
-              this.blueButterflyStyle = `bottom:calc(400px + ${bottom}); right:${right};`;
+            } else if (this.currentLevel == 6) {
+              this.blueButterflyStyle = `top:calc(-800px + ${top}); left:${left};`;
+            } else if(this.currentLevel == 7) {
+              this.blueButterflyStyle = `top:calc(-1000px + ${top}); left:${left};`;
             }
           } else {
-            if (this.currentLevel != 0) {
+            if (this.currentLevel == 5) {
               this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            } else {
-              this.blueButterflyStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(${right} * 0.75);`;
+            } else if (this.currentLevel == 6) {
+              this.blueButterflyStyle = `top:calc(-600px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+            } else if(this.currentLevel == 7) {
+              this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
@@ -615,8 +756,36 @@ const App = {
     },
     reset() {
       if (confirm('Сбросить прогресс?')) {
-        this.completedLevels = [false, false, false, false, false];
+        this.completedLevels = [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+        ];
         this.answers = [
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+          },
           {
             blueAnswer: '',
             redAnswer: '',

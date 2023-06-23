@@ -127,7 +127,7 @@ const App = {
           yellowFlower: {
             flower_yellow: true,
             flower_level4: true,
-            flower_yellow_level4:true
+            flower_yellow_level4: true,
           },
           yellowSquare: {
             square_yellow: true,
@@ -157,7 +157,6 @@ const App = {
           fieldAnswer: 'position:relative;',
           blueFlower: {
             flower_blue: true,
-            flower: true,
             flower_blue_level5: true,
           },
           blueButterfly: {
@@ -190,7 +189,6 @@ const App = {
           fieldAnswer: 'position:relative;',
           blueFlower: {
             flower_blue: true,
-            flower: true,
             flower_blue_level6: true,
           },
           blueButterfly: {
@@ -204,7 +202,6 @@ const App = {
           },
           yellowFlower: {
             flower_yellow: true,
-            flower: true,
             flower_yellow_level6: true,
           },
           yellowButterfly: {
@@ -234,7 +231,7 @@ const App = {
             '<div class="butterfly red"></div>',
             '</div>',
           ],
-          accordionActive:false,
+          accordionActive: false,
           textAfterHtml: [],
           blueButterflyAnswer: 'position:absolute;top:100px;left:100px;',
           redButterflyAnswer: 'position:absolute;left:300px;top:100px;',
@@ -244,7 +241,6 @@ const App = {
           yellowAnswer: 'position:relative;bottom:100px;right:-200px;',
           blueFlower: {
             flower_blue: true,
-            flower: true,
             flower_blue_level7: true,
           },
           blueButterfly: {
@@ -258,7 +254,6 @@ const App = {
           },
           redFlower: {
             flower_red: true,
-            flower: true,
             flower_red_level7: true,
           },
           redButterfly: {
@@ -477,7 +472,7 @@ const App = {
           if (this.width > 480) {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else if(this.currentLevel == 4) {
+            } else if (this.currentLevel == 4) {
               this.redStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             } else if (this.currentLevel == 7) {
               this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
@@ -485,9 +480,9 @@ const App = {
           } else {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else if(this.currentLevel == 4) {
+            } else if (this.currentLevel == 4) {
               this.redStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
-            }else if (this.currentLevel == 7) {
+            } else if (this.currentLevel == 7) {
               this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
             }
           }
@@ -525,7 +520,7 @@ const App = {
           if (this.width > 480) {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.yellowStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else  if(this.currentLevel == 4){
+            } else if (this.currentLevel == 4) {
               this.yellowStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             } else if (this.currentLevel == 7) {
               this.yellowStyle = `bottom:calc(300px + ${bottom}); right:calc(-12px + ${right});`;
@@ -533,7 +528,7 @@ const App = {
           } else {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
               this.yellowStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else if(this.currentLevel == 4){
+            } else if (this.currentLevel == 4) {
               this.yellowStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             } else if (this.currentLevel == 7) {
               this.yellowStyle = `bottom:calc(225px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
@@ -547,7 +542,7 @@ const App = {
     playerYellowButterflyAnswer(newPlayerYellowButterflyAnswer) {
       if (
         newPlayerYellowButterflyAnswer.includes('absolute') ||
-          newPlayerYellowButterflyAnswer.includes('fixed')
+        newPlayerYellowButterflyAnswer.includes('fixed')
       ) {
         let words = newPlayerYellowButterflyAnswer.split(';');
         let top = '0';
@@ -576,20 +571,20 @@ const App = {
               .replaceAll(' ', '');
             if (this.currentLevel == 6) {
               right = -300 + Number.parseInt(right);
-            }else if(this.currentLevel == 7){
+            } else if (this.currentLevel == 7) {
               right = -200 + Number.parseInt(right);
             }
           }
           if (this.width > 480) {
             if (this.currentLevel == 6) {
               this.yellowButterflyStyle = `bottom:calc(780px + ${bottom}px); right:${right}px;`;
-            } else if(this.currentLevel == 7) {
+            } else if (this.currentLevel == 7) {
               this.yellowButterflyStyle = `bottom:calc(1060px + ${bottom}px); right:calc(${right}px - 100px);`;
             }
           } else {
             if (this.currentLevel == 6) {
               this.yellowButterflyStyle = `bottom:calc(585px + calc(${bottom}px * 0.75)); right:calc(${right}px * 0.75);`;
-            } else if(this.currentLevel == 7){
+            } else if (this.currentLevel == 7) {
               this.yellowButterflyStyle = `bottom:calc(795px + calc(${bottom} * 0.75)); right:calc(-75px + calc(${right} * 0.75));`;
             }
           }
@@ -645,7 +640,7 @@ const App = {
     playerBlueButterflyAnswer(newPlayerBlueButterflyAnswer) {
       if (
         newPlayerBlueButterflyAnswer.includes('absolute') ||
-          newPlayerBlueButterflyAnswer.includes('fixed')
+        newPlayerBlueButterflyAnswer.includes('fixed')
       ) {
         let words = newPlayerBlueButterflyAnswer.split(';');
         let top = '0';
@@ -673,7 +668,7 @@ const App = {
               this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
             } else if (this.currentLevel == 6) {
               this.blueButterflyStyle = `top:calc(-800px + ${top}); left:${left};`;
-            } else if(this.currentLevel == 7) {
+            } else if (this.currentLevel == 7) {
               this.blueButterflyStyle = `top:calc(-1000px + ${top}); left:${left};`;
             }
           } else {
@@ -681,7 +676,7 @@ const App = {
               this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             } else if (this.currentLevel == 6) {
               this.blueButterflyStyle = `top:calc(-600px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            } else if(this.currentLevel == 7) {
+            } else if (this.currentLevel == 7) {
               this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }

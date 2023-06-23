@@ -430,9 +430,8 @@ html {
 }
 
 .flower {
-  height: 100px;
-  width: 75px;
-  position: relative;
+  top: -400px;
+  left: 12px;
 }
 
 .flower_level4 {
@@ -445,8 +444,9 @@ html {
 
 .flower_blue {
   background-image: url(../assets/flower-blue.svg);
-  top: -400px;
-  left: 12px;
+  height: 100px;
+  width: 75px;
+  position: relative;
 }
 
 .flower_blue_level5 {
@@ -466,20 +466,24 @@ html {
 
 .flower_red {
   background-image: url(../assets/flower-red.svg);
-  top: -400px;
-  left: 12px;
+  height: 100px;
+  width: 75px;
+  position: relative;
 }
 
-.flower_red_level7{
+.flower_red_level7 {
   top: -400px;
   left: 12px;
 }
 
 .flower_yellow {
   background-image: url(../assets/flower-yellow.svg);
+  height: 100px;
+  width: 75px;
+  position: relative;
 }
 
-.flower_yellow_level3{
+.flower_yellow_level3 {
   top: -400px;
   left: 12px;
 }
@@ -641,12 +645,12 @@ html {
 }
 
 .butterfly_yellow_level6 {
-  bottom:780px;
+  bottom: 780px;
   right: 0px;
 }
 
 .butterfly_yellow_level7 {
-  bottom:1060px;
+  bottom: 1060px;
   right: -100px;
 }
 
@@ -656,25 +660,24 @@ html {
 
 .accordion {
   cursor: pointer;
-  padding: 18px;
+  padding: 10px;
   width: 100%;
   text-align: left;
   border: none;
   outline: none;
+  background-color: #437d45;
+  display: flex;
+  align-items: center;
 }
 
 .accordion:after {
-  content: '+';
-  font-size: 18px;
-  float: right;
-  margin-left: 5px;
+  content: "+";
+  font-size: 25px;
 }
 
 .accordion_active:after {
-  content: '-';
-  font-size: 18px;
-  float: right;
-  margin-left: 5px;
+  content: "-";
+  font-size: 25px;
 }
 
 .accordion_panel {
@@ -789,7 +792,7 @@ html {
     background-image: url(../assets/small/flower-red-small.svg);
   }
 
-  .flower_red_level7{
+  .flower_red_level7 {
     top: -300px;
     left: 9px;
   }
@@ -912,7 +915,6 @@ html {
     left: 0;
   }
 
-
   .butterfly_red {
     background-image: url(../assets/small/butterfly-red-small.svg);
   }
@@ -931,12 +933,12 @@ html {
   }
 
   .butterfly_yellow_level6 {
-    bottom:585px;
+    bottom: 585px;
     right: 0px;
   }
 
   .butterfly_yellow_level7 {
-    bottom:795px;
+    bottom: 795px;
     right: -75px;
   }
 }

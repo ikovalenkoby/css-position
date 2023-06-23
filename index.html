@@ -43,7 +43,8 @@
       <section class="main_content" @click="dropdown=false">
         <p v-for="(text, index) in levels[currentLevel-1].text" :key="index">{{text}}</p>
         <p class="accordion" v-if="levels[currentLevel-1].accordion"
-          @click="levels[currentLevel-1].accordionActive = !levels[currentLevel-1].accordionActive" :class="{accordion_active:levels[currentLevel-1].accordionActive}">
+          @click="levels[currentLevel-1].accordionActive = !levels[currentLevel-1].accordionActive"
+          :class="{accordion_active:levels[currentLevel-1].accordionActive}">
           {{levels[currentLevel-1].accordion}}</p>
         <div class="accordion_panel" v-if="levels[currentLevel-1].accordionActive">
           <p v-for="(text, index) in levels[currentLevel-1].accordionText" :key="index">{{text}}</p>
@@ -58,34 +59,14 @@
             <textarea type="text" required v-model="playerFlowerAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
-          <div v-if="levels[currentLevel-1].blueAnswer">
-            <span>.flower.blue {</span>
-            <textarea type="text" required v-model="playerBlueAnswer" class="form_input"></textarea>
-            <span class="closing_input">}</span>
-          </div>
-          <div v-if="levels[currentLevel-1].redAnswer">
-            <span>.flower.red {</span>
-            <textarea type="text" required v-model="playerRedAnswer" class="form_input"></textarea>
-            <span class="closing_input">}</span>
-          </div>
-          <div v-if="levels[currentLevel-1].yellowAnswer">
-            <span>.flower.yellow {</span>
-            <textarea type="text" required v-model="playerYellowAnswer" class="form_input"></textarea>
-            <span class="closing_input">}</span>
-          </div>
           <div v-if="levels[currentLevel-1].fieldAnswer">
             <span>.field {</span>
             <textarea type="text" required v-model="playerFieldAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
-          <div v-if="levels[currentLevel-1].yellowButterflyAnswer">
-            <span>.butterfly.yellow {</span>
-            <textarea type="text" required v-model="playerYellowButterflyAnswer" class="form_input"></textarea>
-            <span class="closing_input">}</span>
-          </div>
-          <div v-if="levels[currentLevel-1].redButterflyAnswer">
-            <span>.butterfly.red {</span>
-            <textarea type="text" required v-model="playerRedButterflyAnswer" class="form_input"></textarea>
+          <div v-if="levels[currentLevel-1].blueAnswer">
+            <span>.flower.blue {</span>
+            <textarea type="text" required v-model="playerBlueAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
           <div v-if="levels[currentLevel-1].blueButterflyAnswer">
@@ -93,6 +74,28 @@
             <textarea type="text" required v-model="playerBlueButterflyAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
+          <div v-if="levels[currentLevel-1].redAnswer">
+            <span>.flower.red {</span>
+            <textarea type="text" required v-model="playerRedAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].redButterflyAnswer">
+            <span>.butterfly.red {</span>
+            <textarea type="text" required v-model="playerRedButterflyAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].yellowAnswer">
+            <span>.flower.yellow {</span>
+            <textarea type="text" required v-model="playerYellowAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+          <div v-if="levels[currentLevel-1].yellowButterflyAnswer">
+            <span>.butterfly.yellow {</span>
+            <textarea type="text" required v-model="playerYellowButterflyAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
+
+
           <button type="submit" class="submit_button">Следующий</button>
         </form>
       </section>

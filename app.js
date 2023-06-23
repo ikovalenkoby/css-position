@@ -127,6 +127,7 @@ const App = {
           yellowFlower: {
             flower_yellow: true,
             flower_level4: true,
+            flower_yellow_level4:true
           },
           yellowSquare: {
             square_yellow: true,
@@ -179,8 +180,8 @@ const App = {
             '<div class="field">',
             '<div class="flower blue"></div>',
             '<div class="butterfly blue"></div>',
-            '<div class=" flower yellow "></div>',
-            '<div class=" butterfly yellow "></div>',
+            '<div class="flower yellow"></div>',
+            '<div class="butterfly yellow"></div>',
             '</div>',
           ],
           textAfterHtml: [],
@@ -227,10 +228,10 @@ const App = {
             '<div class="field">',
             '<div class="flower blue"></div>',
             '<div class="butterfly blue"></div>',
-            '<div class=" flower yellow "></div>',
-            '<div class=" butterfly yellow "></div>',
-            '<div class=" flower red "></div>',
-            '<div class=" butterfly red "></div>',
+            '<div class="flower yellow"></div>',
+            '<div class="butterfly yellow"></div>',
+            '<div class="flower red"></div>',
+            '<div class="butterfly red"></div>',
             '</div>',
           ],
           accordionActive:false,

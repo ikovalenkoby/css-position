@@ -48,10 +48,10 @@
           :class="{accordion_active:levels[currentLevel-1].accordionActive}">
           {{levels[currentLevel-1].accordion}}</span>
         <div class="accordion_panel" v-if="levels[currentLevel-1].accordionActive">
-          <p v-for="(text, index) in levels[currentLevel-1].accordionText" :key="index">{{text}}</p>
+          <pre v-for="(text, index) in levels[currentLevel-1].accordionText" :key="index">{{text}}</pre>
         </div>
         <div class="code">
-          <p v-for="(text, index) in levels[currentLevel-1].textHtml" :key="index">{{text}}</p>
+          <pre v-for="(text, index) in levels[currentLevel-1].textHtml" :key="index">{{text}}</pre>
         </div>
         <p v-for="(text, index) in levels[currentLevel-1].textAfterHtml" :key="index">{{text}}</p>
         <form @submit.prevent="onSubmit" v-bind:class="form">

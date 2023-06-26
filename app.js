@@ -2,8 +2,8 @@ const App = {
   data() {
     return {
       currentLevel: 1,
-      maxLevel: 7,
-      completedLevels: [false, false, false, false, false, false, false],
+      maxLevel: 8,
+      completedLevels: [false, false, false, false, false, false, false, false],
       levels: [
         {
           text: [
@@ -279,8 +279,84 @@ const App = {
             square_yellow_level7: true,
           },
         },
+        {
+          text: [
+            'У элементов, для которых установлено абсолютное позиционирование, есть интересная особенность: они двигаются в рамках своего блока-контейнера с относительным позиционированием. Если блок-контейнер с относительным позиционированием куда-то передвигается, то элементы, которые в нем содержатся и имеют абсолютное позиционирование, передвигаются вместе с ним.',
+            'На поле размещены цветы с бабочками. Необходимо передвинуть  цветы с  бабочками на соответствующие выделенные клетки. Бабочки уже позиционированы абсолютным позиционированием.',
+            '*размер одного квадрата равен 100*100 пикселей',
+          ],
+          textHtml: [],
+          accordion: `Код цветов в HTML:`,
+          accordionText: [
+            '<div class="field">',
+            '<div class="flower blue">',
+            '<div class=" butterfly blue"></div>',
+            '</div>',
+            '<div class=" flower yellow ">',
+            '<div class=" butterfly yellow "></div>',
+            '</div>',
+            '<div class=" flower red ">',
+            '	<div class=" butterfly red "></div>',
+            '</div>',
+            '</div>',
+          ],
+          accordionActive: false,
+          textAfterHtml: [],
+          blueAnswer: 'position:relative;left:200px;top:200px;',
+          redAnswer: 'position:relative;left:100px;top:-100px;',
+          yellowAnswer: 'position:relative;left:300px;top:200px;',
+          blueFlower: {
+            flower_blue: true,
+            flower_blue_level8: true,
+          },
+          blueButterfly: {
+            butterfly: true,
+            butterfly_blue: true,
+            butterfly_blue_level8: true,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level8: true,
+          },
+          redFlower: {
+            flower_red: true,
+            flower_red_level8: true,
+          },
+          redButterfly: {
+            butterfly: true,
+            butterfly_red: true,
+            butterfly_red_level8: true,
+          },
+          redSquare: {
+            square_red: true,
+            square_red_level8: true,
+          },
+          yellowFlower: {
+            flower_yellow: true,
+            flower_yellow_level8: true,
+          },
+          yellowButterfly: {
+            butterfly: true,
+            butterfly_yellow: true,
+            butterfly_yellow_level8: true,
+          },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level8: true,
+          },
+        },
       ],
       answers: [
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+        },
         {
           blueAnswer: '',
           redAnswer: '',
@@ -428,6 +504,9 @@ const App = {
               this.blueStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             } else if (this.currentLevel == 7) {
               this.blueStyle = `top:calc(-200px + ${top}); left:calc(12px + ${left});`;
+            } else if (this.currentLevel == 8) {
+              this.blueStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
+              this.blueButterflyStyle = `top:calc(-1000px + ${top}); left: ${left};`;
             }
           } else {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
@@ -436,11 +515,17 @@ const App = {
               this.blueStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             } else if (this.currentLevel == 7) {
               this.blueStyle = `top:calc(-150px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+            } else if (this.currentLevel == 8) {
+              this.blueStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left: calc(${left} * 0.75);`;
             }
           }
         });
       } else {
         this.blueStyle = '';
+        if (this.currentLevel == 8) {
+          this.blueButterflyStyle = '';
+        }
       }
     },
     playerRedAnswer(newPlayerRedAnswer) {
@@ -476,6 +561,9 @@ const App = {
               this.redStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             } else if (this.currentLevel == 7) {
               this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
+            } else if (this.currentLevel == 8) {
+              this.redStyle = `top:calc(-300px + ${top}); left:calc(9px + ${left});`;
+              this.redButterflyStyle = `top:calc(-880px + ${top}); left:${left};`;
             }
           } else {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
@@ -484,11 +572,17 @@ const App = {
               this.redStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             } else if (this.currentLevel == 7) {
               this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+            } else if (this.currentLevel == 8) {
+              this.redStyle = `top:calc(-225px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.redButterflyStyle = `top:calc(-660px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
       } else {
         this.redStyle = '';
+        if (this.currentLevel == 8) {
+          this.redButterflyStyle = '';
+        }
       }
     },
     playerYellowAnswer(newPlayerYellowAnswer) {
@@ -524,6 +618,9 @@ const App = {
               this.yellowStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
             } else if (this.currentLevel == 7) {
               this.yellowStyle = `bottom:calc(300px + ${bottom}); right:calc(-12px + ${right});`;
+            } else if (this.currentLevel == 8) {
+              this.yellowStyle = `top:calc(-500px + ${top}); left:calc(12px + ${left});`;
+              this.yellowButterflyStyle = `top:calc(-1060px + ${top}); left:${left};`;
             }
           } else {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
@@ -532,11 +629,17 @@ const App = {
               this.yellowStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
             } else if (this.currentLevel == 7) {
               this.yellowStyle = `bottom:calc(225px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+            } else if (this.currentLevel == 8) {
+              this.yellowStyle = `top:calc(-375px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.yellowButterflyStyle = `top:calc(-795px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
       } else {
         this.yellowStyle = '';
+        if (this.currentLevel == 8) {
+          this.yellowButterflyStyle = '';
+        }
       }
     },
     playerYellowButterflyAnswer(newPlayerYellowButterflyAnswer) {
@@ -760,8 +863,19 @@ const App = {
           false,
           false,
           false,
+          false,
         ];
         this.answers = [
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+          },
           {
             blueAnswer: '',
             redAnswer: '',

@@ -458,44 +458,35 @@ const App = {
     }
     this.getCompletedLevels();
     this.getAnswers();
-    this.playerBlueAnswer = this.answers[this.currentLevel - 1].blueAnswer;
-    this.playerRedAnswer = this.answers[this.currentLevel - 1].redAnswer;
-    this.playerYellowAnswer = this.answers[this.currentLevel - 1].yellowAnswer;
-    this.playerFlowerAnswer = this.answers[this.currentLevel - 1].flowerAnswer;
-    this.playerBlueButterflyAnswer =
-      this.answers[this.currentLevel - 1].blueButterflyAnswer;
-    this.playerRedButterflyAnswer =
-      this.answers[this.currentLevel - 1].redButterflyAnswer;
-    this.playerYellowButterflyAnswer =
-      this.answers[this.currentLevel - 1].yellowButterflyAnswer;
-    this.playerFieldAnswer = this.answers[this.currentLevel - 1].fieldAnswer;
+    this.setPlayerAnswers(this.currentLevel);
   },
   watch: {
     playerBlueAnswer(newPlayerBlueAnswer) {
+      if (this.currentLevel == 8) {
+        this.playerBlueButterflyAnswer = newPlayerBlueAnswer;
+      }
       if (
         newPlayerBlueAnswer.includes('relative') ||
         this.playerFlowerAnswer.includes('relative')
       ) {
-        let words = newPlayerBlueAnswer.split(';');
+        let words = newPlayerBlueAnswer
+          .replaceAll(':', '')
+          .replaceAll(' ', '')
+          .replaceAll('\n', '')
+          .split(';');
         let top = '0';
         let bottom = '0';
         let right = '0';
         let left = '0';
         words.forEach((el) => {
           if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
+            top = el.replace('top', '');
           } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            bottom = el.replace('bottom', '');
           } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
+            left = el.replace('left', '');
           } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            right = el.replace('right', '');
           }
           if (this.width > 480) {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
@@ -529,18 +520,25 @@ const App = {
       }
     },
     playerRedAnswer(newPlayerRedAnswer) {
+      if (this.currentLevel == 8) {
+        this.playerRedButterflyAnswer = newPlayerRedAnswer;
+      }
       if (
         newPlayerRedAnswer.includes('relative') ||
         this.playerFlowerAnswer.includes('relative')
       ) {
-        let words = newPlayerRedAnswer.split(';');
+        let words = newPlayerRedAnswer
+          .replaceAll(':', '')
+          .replaceAll(' ', '')
+          .replaceAll('\n', '')
+          .split(';');
         let top = '0';
         let bottom = '0';
         let right = '0';
         let left = '0';
         words.forEach((el) => {
           if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
+            top = el.replace('top', '');
           } else if (el.includes('bottom')) {
             bottom = el
               .replace('bottom', '')
@@ -586,30 +584,31 @@ const App = {
       }
     },
     playerYellowAnswer(newPlayerYellowAnswer) {
+      if (this.currentLevel == 8) {
+        this.playerYellowButterflyAnswer = newPlayerYellowAnswer;
+      }
       if (
         newPlayerYellowAnswer.includes('relative') ||
         this.playerFlowerAnswer.includes('relative')
       ) {
-        let words = newPlayerYellowAnswer.split(';');
+        let words = newPlayerYellowAnswer
+          .replaceAll(':', '')
+          .replaceAll(' ', '')
+          .replaceAll('\n', '')
+          .split(';');
         let top = '0';
         let bottom = '0';
         let right = '0';
         let left = '0';
         words.forEach((el) => {
           if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
+            top = el.replace('top', '');
           } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            bottom = el.replace('bottom', '');
           } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
+            left = el.replace('left', '');
           } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            right = el.replace('right', '');
           }
           if (this.width > 480) {
             if (this.currentLevel >= 1 && this.currentLevel <= 3) {
@@ -643,150 +642,131 @@ const App = {
       }
     },
     playerYellowButterflyAnswer(newPlayerYellowButterflyAnswer) {
-      if (
-        newPlayerYellowButterflyAnswer.includes('absolute') ||
-        newPlayerYellowButterflyAnswer.includes('fixed')
-      ) {
-        let words = newPlayerYellowButterflyAnswer.split(';');
-        let top = '0';
-        let bottom = '0';
-        let right = '0';
-        let left = '0';
-        words.forEach((el) => {
-          if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replace('px', '')
-              .replaceAll(' ', '');
-            if (this.currentLevel == 6 || this.currentLevel == 7) {
-              bottom = -200 + Number.parseInt(bottom);
-            }
-          } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replace('px', '')
-              .replaceAll(' ', '');
-            if (this.currentLevel == 6) {
-              right = -300 + Number.parseInt(right);
-            } else if (this.currentLevel == 7) {
-              right = -200 + Number.parseInt(right);
-            }
+      let words = newPlayerYellowButterflyAnswer
+        .replaceAll(':', '')
+        .replaceAll(' ', '')
+        .replaceAll('\n', '')
+        .split(';');
+      let top = '0';
+      let bottom = '0';
+      let right = '0';
+      let left = '0';
+      words.forEach((el) => {
+        if (el.includes('top')) {
+          top = el.replace('top', '');
+        } else if (el.includes('bottom')) {
+          bottom = el.replace('bottom', '').replace('px', '');
+          if (this.currentLevel == 6 || this.currentLevel == 7) {
+            bottom = -200 + Number.parseInt(bottom);
           }
-          if (this.width > 480) {
-            if (this.currentLevel == 6) {
-              this.yellowButterflyStyle = `bottom:calc(780px + ${bottom}px); right:${right}px;`;
-            } else if (this.currentLevel == 7) {
-              this.yellowButterflyStyle = `bottom:calc(1060px + ${bottom}px); right:calc(${right}px - 100px);`;
-            }
-          } else {
-            if (this.currentLevel == 6) {
-              this.yellowButterflyStyle = `bottom:calc(585px + calc(${bottom}px * 0.75)); right:calc(${right}px * 0.75);`;
-            } else if (this.currentLevel == 7) {
-              this.yellowButterflyStyle = `bottom:calc(795px + calc(${bottom} * 0.75)); right:calc(-75px + calc(${right} * 0.75));`;
-            }
+        } else if (el.includes('left')) {
+          left = el.replace('left', '');
+        } else if (el.includes('right')) {
+          right = el.replace('right', '').replace('px', '');
+          if (this.currentLevel == 6) {
+            right = -300 + Number.parseInt(right);
+          } else if (this.currentLevel == 7) {
+            right = -200 + Number.parseInt(right);
           }
-        });
-      } else {
-        this.yellowButterflyStyle = '';
-      }
+        }
+        if (this.width > 480) {
+          if (this.currentLevel == 6) {
+            this.yellowButterflyStyle = `bottom:calc(780px + ${bottom}px); right:${right}px;`;
+          } else if (this.currentLevel == 7) {
+            this.yellowButterflyStyle = `bottom:calc(1060px + ${bottom}px); right:calc(${right}px - 100px);`;
+          } else if (this.currentLevel == 8) {
+            this.yellowButterflyStyle = `top:calc(-1060px + ${top}); left:${left};`;
+          }
+        } else {
+          if (this.currentLevel == 6) {
+            this.yellowButterflyStyle = `bottom:calc(585px + calc(${bottom}px * 0.75)); right:calc(${right}px * 0.75);`;
+          } else if (this.currentLevel == 7) {
+            this.yellowButterflyStyle = `bottom:calc(795px + calc(${bottom}px * 0.75)); right:calc(-75px + calc(${right}px * 0.75));`;
+          } else if (this.currentLevel == 8) {
+            this.yellowButterflyStyle = `top:calc(-795px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+          }
+        }
+      });
     },
     playerRedButterflyAnswer(newPlayerRedButterflyAnswer) {
-      if (
-        newPlayerRedButterflyAnswer.includes('absolute') ||
-        newPlayerRedButterflyAnswer.includes('fixed')
-      ) {
-        let words = newPlayerRedButterflyAnswer.split(';');
-        let top = '0';
-        let bottom = '0';
-        let right = '0';
-        let left = '0';
-        words.forEach((el) => {
-          if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
-          } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+      let words = newPlayerRedButterflyAnswer
+        .replaceAll(':', '')
+        .replaceAll(' ', '')
+        .replaceAll('\n', '')
+        .split(';');
+      let top = '0';
+      let bottom = '0';
+      let right = '0';
+      let left = '0';
+      words.forEach((el) => {
+        if (el.includes('top')) {
+          top = el.replace('top', '');
+        } else if (el.includes('bottom')) {
+          bottom = el.replace('bottom', '');
+        } else if (el.includes('left')) {
+          left = el.replace('left', '');
+        } else if (el.includes('right')) {
+          right = el.replace('right', '');
+        }
+        if (this.width > 480) {
+          if (this.currentLevel == 7) {
+            this.redButterflyStyle = `top:calc(-1080px + ${top}); left:calc(0px + ${left});`;
+          } else if (this.currentLevel == 8) {
+            this.redButterflyStyle = `top:calc(-880px + ${top}); left:${left};`;
           }
-          if (this.width > 480) {
-            if (this.currentLevel == 7) {
-              this.redButterflyStyle = `top:calc(-1080px + ${top}); left:calc(0px + ${left});`;
-            } else {
-              this.redButterflyStyle = `bottom:calc(327px + ${bottom}); right:calc(-50px + ${right});`;
-            }
-          } else {
-            if (this.currentLevel == 7) {
-              this.redButterflyStyle = `top:calc(-810px + calc(${top} * 0.75)); left:calc(0px + calc(${left} * 0.75));`;
-            } else {
-              this.redButterflyStyle = `bottom:calc(245px + calc(${bottom} * 0.75)); right:calc(-38px + calc(${right} * 0.75));`;
-            }
+        } else {
+          if (this.currentLevel == 7) {
+            this.redButterflyStyle = `top:calc(-810px + calc(${top} * 0.75)); left:calc(0px + calc(${left} * 0.75));`;
+          } else if (this.currentLevel == 8) {
+            this.redButterflyStyle = `top:calc(-660px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
           }
-        });
-      } else {
-        this.redButterflyStyle = '';
-      }
+        }
+      });
     },
     playerBlueButterflyAnswer(newPlayerBlueButterflyAnswer) {
-      if (
-        newPlayerBlueButterflyAnswer.includes('absolute') ||
-        newPlayerBlueButterflyAnswer.includes('fixed')
-      ) {
-        let words = newPlayerBlueButterflyAnswer.split(';');
-        let top = '0';
-        let bottom = '0';
-        let right = '0';
-        let left = '0';
-        words.forEach((el) => {
-          if (el.includes('top')) {
-            top = el.replace('top', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
-          } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
-          } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+      console.log(`blue but: ${newPlayerBlueButterflyAnswer}`);
+      let words = newPlayerBlueButterflyAnswer
+        .replaceAll(':', '')
+        .replaceAll(' ', '')
+        .replaceAll('\n', '')
+        .split(';');
+      let top = '0';
+      let bottom = '0';
+      let right = '0';
+      let left = '0';
+      words.forEach((el) => {
+        if (el.includes('top')) {
+          top = el.replace('top', '');
+        } else if (el.includes('bottom')) {
+          bottom = el.replace('bottom', '');
+        } else if (el.includes('left')) {
+          left = el.replace('left', '');
+        } else if (el.includes('right')) {
+          right = el.replace('right', '');
+        }
+        if (this.width > 480) {
+          if (this.currentLevel == 5) {
+            this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
+          } else if (this.currentLevel == 6) {
+            this.blueButterflyStyle = `top:calc(-800px + ${top}); left:${left};`;
+          } else if (this.currentLevel == 7) {
+            this.blueButterflyStyle = `top:calc(-1000px + ${top}); left:${left};`;
+          } else if (this.currentLevel == 8) {
+            this.blueButterflyStyle = `top:calc(-1000px + ${top}); left: ${left};`;
           }
-          if (this.width > 480) {
-            if (this.currentLevel == 5) {
-              this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
-            } else if (this.currentLevel == 6) {
-              this.blueButterflyStyle = `top:calc(-800px + ${top}); left:${left};`;
-            } else if (this.currentLevel == 7) {
-              this.blueButterflyStyle = `top:calc(-1000px + ${top}); left:${left};`;
-            }
-          } else {
-            if (this.currentLevel == 5) {
-              this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            } else if (this.currentLevel == 6) {
-              this.blueButterflyStyle = `top:calc(-600px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            } else if (this.currentLevel == 7) {
-              this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            }
+        } else {
+          if (this.currentLevel == 5) {
+            this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+          } else if (this.currentLevel == 6) {
+            this.blueButterflyStyle = `top:calc(-600px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+            console.log(`blue but: ${this.blueButterflyStyle}`);
+          } else if (this.currentLevel == 7) {
+            this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+          } else if (this.currentLevel == 8) {
+            this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left: calc(${left} * 0.75);`;
           }
-        });
-      } else {
-        this.blueButterflyStyle = '';
-      }
+        }
+      });
     },
     currentLevel(newCurrentLevel) {
       if (newCurrentLevel > 0 && newCurrentLevel < this.maxLevel + 1) {
@@ -825,7 +805,7 @@ const App = {
         this.answers = JSON.parse(answers);
       }
     },
-    setCurrentLevel(level) {
+    setPlayerAnswers(level) {
       this.playerYellowAnswer = this.answers[level - 1].yellowAnswer;
       this.playerBlueAnswer = this.answers[level - 1].blueAnswer;
       this.playerRedAnswer = this.answers[level - 1].redAnswer;
@@ -837,6 +817,24 @@ const App = {
       this.playerYellowButterflyAnswer =
         this.answers[level - 1].yellowButterflyAnswer;
       this.playerFieldAnswer = this.answers[level - 1].fieldAnswer;
+    },
+    setAnswers() {
+      this.answers[this.currentLevel - 1].blueAnswer = this.playerBlueAnswer;
+      this.answers[this.currentLevel - 1].redAnswer = this.playerRedAnswer;
+      this.answers[this.currentLevel - 1].yellowAnswer =
+        this.playerYellowAnswer;
+      this.answers[this.currentLevel - 1].flowerAnswer =
+        this.playerFlowerAnswer;
+      this.answers[this.currentLevel - 1].blueButterflyAnswer =
+        this.playerBlueButterflyAnswer;
+      this.answers[this.currentLevel - 1].redButterflyAnswer =
+        this.playerRedButterflyAnswer;
+      this.answers[this.currentLevel - 1].yellowButterflyAnswer =
+        this.playerYellowButterflyAnswer;
+      this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
+    },
+    setCurrentLevel(level) {
+      this.setPlayerAnswers(level);
       this.currentLevel = level;
     },
     nextLevel() {
@@ -961,19 +959,7 @@ const App = {
       let completed = 0;
       let nextLevel = +this.currentLevel + 1;
       this.completedLevels[this.currentLevel - 1] = true;
-      this.answers[this.currentLevel - 1].blueAnswer = this.playerBlueAnswer;
-      this.answers[this.currentLevel - 1].redAnswer = this.playerRedAnswer;
-      this.answers[this.currentLevel - 1].yellowAnswer =
-        this.playerYellowAnswer;
-      this.answers[this.currentLevel - 1].flowerAnswer =
-        this.playerFlowerAnswer;
-      this.answers[this.currentLevel - 1].blueButterflyAnswer =
-        this.playerBlueButterflyAnswer;
-      this.answers[this.currentLevel - 1].redButterflyAnswer =
-        this.playerRedButterflyAnswer;
-      this.answers[this.currentLevel - 1].yellowButterflyAnswer =
-        this.playerYellowButterflyAnswer;
-      this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
+      this.setAnswers();
       if (this.completedLevels[nextLevel - 1]) {
         this.completedLevels.every((el, index) => {
           if (el == true) {

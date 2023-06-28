@@ -773,11 +773,7 @@ const App = {
       this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
     },
     clearStyles() {
-      this.blueStyle = '';
-      this.redStyle = '';
       this.yellowStyle = '';
-      this.blueButterflyStyle = '';
-      this.redButterflyStyle = '';
       this.yellowButterflyStyle = '';
     },
     setCurrentLevel(level) {

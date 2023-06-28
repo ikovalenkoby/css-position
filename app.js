@@ -462,9 +462,7 @@ const App = {
   },
   watch: {
     playerBlueAnswer(newPlayerBlueAnswer) {
-      if (this.currentLevel == 8) {
-        this.playerBlueButterflyAnswer = newPlayerBlueAnswer;
-      }
+      this.blueStyle = newPlayerBlueAnswer;
       if (
         newPlayerBlueAnswer.includes('relative') ||
         this.playerFlowerAnswer.includes('relative')
@@ -489,30 +487,25 @@ const App = {
             right = el.replace('right', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.blueStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else if (this.currentLevel == 4) {
-              this.blueStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
-            } else if (this.currentLevel == 7) {
-              this.blueStyle = `top:calc(-200px + ${top}); left:calc(12px + ${left});`;
+            if (this.currentLevel == 7) {
+              this.blueStyle = `top:calc(200px + ${top}); left:${left};`;
             } else if (this.currentLevel == 8) {
-              this.blueStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-              this.blueButterflyStyle = `top:calc(-1000px + ${top}); left: ${left};`;
+              this.blueButterflyStyle = `top:${top}; left:${left};`;
             }
           } else {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.blueStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+            if (this.currentLevel != 4 && this.currentLevel != 7) {
+              this.blueStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
             } else if (this.currentLevel == 4) {
-              this.blueStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.blueStyle = `bottom:calc(${bottom} * 0.75); right:calc(${right} * 0.75);`;
             } else if (this.currentLevel == 7) {
-              this.blueStyle = `top:calc(-150px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-            } else if (this.currentLevel == 8) {
-              this.blueStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-              this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left: calc(${left} * 0.75);`;
+              this.blueStyle = `top:calc(150px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+            }
+            if (this.currentLevel == 8) {
+              this.blueButterflyStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
             }
           }
         });
-      } else {
+      } else if (this.currentLevel > 6) {
         this.blueStyle = '';
         if (this.currentLevel == 8) {
           this.blueButterflyStyle = '';
@@ -520,9 +513,7 @@ const App = {
       }
     },
     playerRedAnswer(newPlayerRedAnswer) {
-      if (this.currentLevel == 8) {
-        this.playerRedButterflyAnswer = newPlayerRedAnswer;
-      }
+      this.redStyle = newPlayerRedAnswer;
       if (
         newPlayerRedAnswer.includes('relative') ||
         this.playerFlowerAnswer.includes('relative')
@@ -540,43 +531,29 @@ const App = {
           if (el.includes('top')) {
             top = el.replace('top', '');
           } else if (el.includes('bottom')) {
-            bottom = el
-              .replace('bottom', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            bottom = el.replace('bottom', '');
           } else if (el.includes('left')) {
-            left = el.replace('left', '').replace(':', '').replaceAll(' ', '');
+            left = el.replace('left', '');
           } else if (el.includes('right')) {
-            right = el
-              .replace('right', '')
-              .replace(':', '')
-              .replaceAll(' ', '');
+            right = el.replace('right', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else if (this.currentLevel == 4) {
-              this.redStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
-            } else if (this.currentLevel == 7) {
-              this.redStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else if (this.currentLevel == 8) {
-              this.redStyle = `top:calc(-300px + ${top}); left:calc(9px + ${left});`;
-              this.redButterflyStyle = `top:calc(-880px + ${top}); left:${left};`;
+            if (this.currentLevel == 8) {
+              this.redStyle = `top:calc(100px + ${top}); left:${left};`;
+              this.redButterflyStyle = `top:calc(200px + ${top}); left:${left};`;
             }
           } else {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+            if (this.currentLevel != 4 && this.currentLevel != 8) {
+              this.redStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
             } else if (this.currentLevel == 4) {
-              this.redStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
-            } else if (this.currentLevel == 7) {
-              this.redStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+              this.redStyle = `bottom:calc(${bottom} * 0.75); right:calc(${right} * 0.75);`;
             } else if (this.currentLevel == 8) {
-              this.redStyle = `top:calc(-225px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-              this.redButterflyStyle = `top:calc(-660px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+              this.redStyle = `top:calc(75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+              this.redButterflyStyle = `top:calc(150px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
-      } else {
+      } else if (this.currentLevel > 7) {
         this.redStyle = '';
         if (this.currentLevel == 8) {
           this.redButterflyStyle = '';
@@ -584,6 +561,7 @@ const App = {
       }
     },
     playerYellowAnswer(newPlayerYellowAnswer) {
+      this.yellowStyle = newPlayerYellowAnswer;
       if (this.currentLevel == 8) {
         this.playerYellowButterflyAnswer = newPlayerYellowAnswer;
       }
@@ -611,26 +589,25 @@ const App = {
             right = el.replace('right', '');
           }
           if (this.width > 480) {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.yellowStyle = `top:calc(-400px + ${top}); left:calc(12px + ${left});`;
-            } else if (this.currentLevel == 4) {
-              this.yellowStyle = `bottom:calc(400px + ${bottom}); right:calc(-12px + ${right});`;
-            } else if (this.currentLevel == 7) {
-              this.yellowStyle = `bottom:calc(300px + ${bottom}); right:calc(-12px + ${right});`;
-            } else if (this.currentLevel == 8) {
-              this.yellowStyle = `top:calc(-500px + ${top}); left:calc(12px + ${left});`;
-              this.yellowButterflyStyle = `top:calc(-1060px + ${top}); left:${left};`;
+            if (this.currentLevel == 7) {
+              this.yellowStyle = `bottom:calc(-100px + ${bottom}); right: ${right};`;
+            }
+            if (this.currentLevel == 8) {
+              this.yellowStyle = `top:calc(-100px + ${top}); left:${left};`;
             }
           } else {
-            if (this.currentLevel >= 1 && this.currentLevel <= 3) {
-              this.yellowStyle = `top:calc(-300px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
+            if (
+              this.currentLevel != 4 &&
+              this.currentLevel != 7 &&
+              this.currentLevel != 8
+            ) {
+              this.yellowStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
             } else if (this.currentLevel == 4) {
-              this.yellowStyle = `bottom:calc(300px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.yellowStyle = `bottom:calc(${bottom} * 0.75); right:calc(${right} * 0.75);`;
             } else if (this.currentLevel == 7) {
-              this.yellowStyle = `bottom:calc(225px + calc(${bottom} * 0.75)); right:calc(-9px + calc(${right} * 0.75));`;
+              this.yellowStyle = `bottom:calc(-75px + calc(${bottom} * 0.75)); right:calc(${right} * 0.75);`;
             } else if (this.currentLevel == 8) {
-              this.yellowStyle = `top:calc(-375px + calc(${top} * 0.75)); left:calc(9px + calc(${left} * 0.75));`;
-              this.yellowButterflyStyle = `top:calc(-795px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+              this.yellowStyle = `top:calc(-75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
@@ -642,6 +619,7 @@ const App = {
       }
     },
     playerYellowButterflyAnswer(newPlayerYellowButterflyAnswer) {
+      this.yellowButterflyStyle = newPlayerYellowButterflyAnswer;
       let words = newPlayerYellowButterflyAnswer
         .replaceAll(':', '')
         .replaceAll(' ', '')
@@ -655,40 +633,30 @@ const App = {
         if (el.includes('top')) {
           top = el.replace('top', '');
         } else if (el.includes('bottom')) {
-          bottom = el.replace('bottom', '').replace('px', '');
-          if (this.currentLevel == 6 || this.currentLevel == 7) {
-            bottom = -200 + Number.parseInt(bottom);
-          }
+          bottom = el.replace('bottom', '');
         } else if (el.includes('left')) {
           left = el.replace('left', '');
         } else if (el.includes('right')) {
-          right = el.replace('right', '').replace('px', '');
-          if (this.currentLevel == 6) {
-            right = -300 + Number.parseInt(right);
-          } else if (this.currentLevel == 7) {
-            right = -200 + Number.parseInt(right);
-          }
+          right = el.replace('right', '');
         }
-        if (this.width > 480) {
-          if (this.currentLevel == 6) {
-            this.yellowButterflyStyle = `bottom:calc(780px + ${bottom}px); right:${right}px;`;
-          } else if (this.currentLevel == 7) {
-            this.yellowButterflyStyle = `bottom:calc(1060px + ${bottom}px); right:calc(${right}px - 100px);`;
-          } else if (this.currentLevel == 8) {
-            this.yellowButterflyStyle = `top:calc(-1060px + ${top}); left:${left};`;
+        if (this.width < 481) {
+          if (bottom == '0' && right == '0') {
+            this.yellowButterflyStyle = newPlayerYellowButterflyAnswer;
+          } else {
+            this.yellowButterflyStyle = `bottom:calc(${bottom} * 0.75); right:calc(${right} * 0.75);`;
+          }
+          if (this.currentLevel == 8) {
+            this.yellowButterflyStyle = `top:calc(75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
           }
         } else {
-          if (this.currentLevel == 6) {
-            this.yellowButterflyStyle = `bottom:calc(585px + calc(${bottom}px * 0.75)); right:calc(${right}px * 0.75);`;
-          } else if (this.currentLevel == 7) {
-            this.yellowButterflyStyle = `bottom:calc(795px + calc(${bottom}px * 0.75)); right:calc(-75px + calc(${right}px * 0.75));`;
-          } else if (this.currentLevel == 8) {
-            this.yellowButterflyStyle = `top:calc(-795px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+          if (this.currentLevel == 8) {
+            this.yellowButterflyStyle = `top:calc(100px + ${top}); left:${left};`;
           }
         }
       });
     },
     playerRedButterflyAnswer(newPlayerRedButterflyAnswer) {
+      this.redButterflyStyle = newPlayerRedButterflyAnswer;
       let words = newPlayerRedButterflyAnswer
         .replaceAll(':', '')
         .replaceAll(' ', '')
@@ -708,23 +676,13 @@ const App = {
         } else if (el.includes('right')) {
           right = el.replace('right', '');
         }
-        if (this.width > 480) {
-          if (this.currentLevel == 7) {
-            this.redButterflyStyle = `top:calc(-1080px + ${top}); left:calc(0px + ${left});`;
-          } else if (this.currentLevel == 8) {
-            this.redButterflyStyle = `top:calc(-880px + ${top}); left:${left};`;
-          }
-        } else {
-          if (this.currentLevel == 7) {
-            this.redButterflyStyle = `top:calc(-810px + calc(${top} * 0.75)); left:calc(0px + calc(${left} * 0.75));`;
-          } else if (this.currentLevel == 8) {
-            this.redButterflyStyle = `top:calc(-660px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-          }
+        if (this.width < 481) {
+          this.redButterflyStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
         }
       });
     },
     playerBlueButterflyAnswer(newPlayerBlueButterflyAnswer) {
-      console.log(`blue but: ${newPlayerBlueButterflyAnswer}`);
+      this.blueButterflyStyle = newPlayerBlueButterflyAnswer;
       let words = newPlayerBlueButterflyAnswer
         .replaceAll(':', '')
         .replaceAll(' ', '')
@@ -744,27 +702,8 @@ const App = {
         } else if (el.includes('right')) {
           right = el.replace('right', '');
         }
-        if (this.width > 480) {
-          if (this.currentLevel == 5) {
-            this.blueButterflyStyle = `top:calc(-400px - ${top}); left:${left};`;
-          } else if (this.currentLevel == 6) {
-            this.blueButterflyStyle = `top:calc(-800px + ${top}); left:${left};`;
-          } else if (this.currentLevel == 7) {
-            this.blueButterflyStyle = `top:calc(-1000px + ${top}); left:${left};`;
-          } else if (this.currentLevel == 8) {
-            this.blueButterflyStyle = `top:calc(-1000px + ${top}); left: ${left};`;
-          }
-        } else {
-          if (this.currentLevel == 5) {
-            this.blueButterflyStyle = `top:calc(-300px - calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-          } else if (this.currentLevel == 6) {
-            this.blueButterflyStyle = `top:calc(-600px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-            console.log(`blue but: ${this.blueButterflyStyle}`);
-          } else if (this.currentLevel == 7) {
-            this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
-          } else if (this.currentLevel == 8) {
-            this.blueButterflyStyle = `top:calc(-750px + calc(${top} * 0.75)); left: calc(${left} * 0.75);`;
-          }
+        if (this.width < 481) {
+          this.blueButterflyStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
         }
       });
     },
@@ -833,7 +772,16 @@ const App = {
         this.playerYellowButterflyAnswer;
       this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
     },
+    clearStyles() {
+      this.blueStyle = '';
+      this.redStyle = '';
+      this.yellowStyle = '';
+      this.blueButterflyStyle = '';
+      this.redButterflyStyle = '';
+      this.yellowButterflyStyle = '';
+    },
     setCurrentLevel(level) {
+      this.clearStyles();
       this.setPlayerAnswers(level);
       this.currentLevel = level;
     },

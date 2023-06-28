@@ -2,8 +2,18 @@ const App = {
   data() {
     return {
       currentLevel: 1,
-      maxLevel: 8,
-      completedLevels: [false, false, false, false, false, false, false, false],
+      maxLevel: 9,
+      completedLevels: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+      ],
       levels: [
         {
           text: [
@@ -345,8 +355,48 @@ const App = {
             square_yellow_level8: true,
           },
         },
+        {
+          text: [
+            'Если элементу задано относительное позиционирование (position: relative;), то его можно сместить относительно его начального положения с помощью значений  свойств  (top, right, bottom, и left).z-index  - это CSS правило, которое позиционирует элементы относительно оси z, наслаивая их один на другой. То есть элемент, с большим z-index будет находится поверх элемента с меньшим z-index. ',
+            'Разместите красную бабочку с помощью абсолютного позиционирования на красном цветке. Цветок необходимо переместить с помощью относительного позиционирования и координаты top. Для того, чтобы бабочка разместилась поверх цветка, необходимо задать ей z-index больший, чем у цветка (по умолчанию z-index равен 0). Полю задано относительное позиционирование.',
+            '*размер одного квадрата равен 100*100 пикселей.',
+            'Код цветов в HTML:',
+          ],
+          textHtml: [
+            '<div class="field">',
+            ' <div class="butterfly red"></div>',
+            ' <div class="flower red"></div>',
+            '</div>',
+          ],
+          textAfterHtml: [],
+          redAnswer: 'position:relative;top:-100px;',
+          redButterflyAnswer: 'position:absolute;',
+          redFlower: {
+            flower_red: true,
+            flower_red_level9: true,
+          },
+          redSquare: {
+            square_red: true,
+            square_red_level9: true,
+          },
+          redButterfly: {
+            butterfly: true,
+            butterfly_red: true,
+            butterfly_red_level9: true,
+          },
+        },
       ],
       answers: [
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+        },
         {
           blueAnswer: '',
           redAnswer: '',
@@ -541,15 +591,19 @@ const App = {
             if (this.currentLevel == 8) {
               this.redStyle = `top:calc(100px + ${top}); left:${left};`;
               this.redButterflyStyle = `top:calc(200px + ${top}); left:${left};`;
+            } else if (this.currentLevel == 9) {
+              this.redStyle = `top:calc(100px + ${top}); left:${left};`;
             }
           } else {
-            if (this.currentLevel != 4 && this.currentLevel != 8) {
+            if (this.currentLevel != 4 && this.currentLevel < 8) {
               this.redStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
             } else if (this.currentLevel == 4) {
               this.redStyle = `bottom:calc(${bottom} * 0.75); right:calc(${right} * 0.75);`;
             } else if (this.currentLevel == 8) {
               this.redStyle = `top:calc(75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
               this.redButterflyStyle = `top:calc(150px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
+            } else if (this.currentLevel == 9) {
+              this.redStyle = `top:calc(75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
             }
           }
         });
@@ -677,7 +731,10 @@ const App = {
           right = el.replace('right', '');
         }
         if (this.width < 481) {
-          this.redButterflyStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
+          this.redButterflyStyle = this.redButterflyStyle
+            .replaceAll(' ', '')
+            .replaceAll(`top:${top}`, `top:calc(${top} * 0.75)`)
+            .replaceAll(`left:${left}`, `left:calc(${left} * 0.75)`);
         }
       });
     },
@@ -772,13 +829,15 @@ const App = {
         this.playerYellowButterflyAnswer;
       this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
     },
-    clearStyles() {
+    clearStyles(level) {
       this.yellowStyle = '';
       this.yellowButterflyStyle = '';
+      this.redStyle = '';
+      this.redButterflyStyle = '';
     },
     setCurrentLevel(level) {
-      if(this.currentLevel != level){
-        this.clearStyles();
+      if (this.currentLevel != level) {
+        this.clearStyles(level);
         this.setPlayerAnswers(level);
         this.currentLevel = level;
       }
@@ -808,8 +867,19 @@ const App = {
           false,
           false,
           false,
+          false,
         ];
         this.answers = [
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+          },
           {
             blueAnswer: '',
             redAnswer: '',
@@ -957,6 +1027,18 @@ const App = {
       let redButterflyAnswer = this.playerRedButterflyAnswer
         .replaceAll('\n', '')
         .replaceAll(' ', '');
+      let zIndex;
+      if (this.currentLevel == 9) {
+        let index = redButterflyAnswer.indexOf('z-index:');
+        zIndex = redButterflyAnswer.slice(
+          index + 8,
+          redButterflyAnswer.length - 1
+        );
+        redButterflyAnswer = redButterflyAnswer.replace(
+          redButterflyAnswer.slice(index, redButterflyAnswer.length),
+          ''
+        );
+      }
       if (
         this.levels[this.currentLevel - 1].fieldAnswer &&
         this.levels[this.currentLevel - 1].fieldAnswer === fieldAnswer
@@ -966,6 +1048,13 @@ const App = {
         this.levels[this.currentLevel - 1].fieldAnswer &&
         this.levels[this.currentLevel - 1].fieldAnswer !== fieldAnswer
       ) {
+        next = false;
+        this.showError();
+        return false;
+      }
+      if (this.currentLevel == 9 && +zIndex > 0) {
+        next = true;
+      } else if (this.currentLevel == 9 && +zIndex <= 0) {
         next = false;
         this.showError();
         return false;

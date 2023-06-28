@@ -777,9 +777,11 @@ const App = {
       this.yellowButterflyStyle = '';
     },
     setCurrentLevel(level) {
-      this.clearStyles();
-      this.setPlayerAnswers(level);
-      this.currentLevel = level;
+      if(this.currentLevel != level){
+        this.clearStyles();
+        this.setPlayerAnswers(level);
+        this.currentLevel = level;
+      }
     },
     nextLevel() {
       let nextLevel = +this.currentLevel + 1;

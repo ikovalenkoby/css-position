@@ -732,7 +732,7 @@ html {
 }
 
 .butterfly_blue_level10 {
-  z-index: 0;
+  z-index: 1;
   top: 100px;
   left: 0px;
 }
@@ -758,7 +758,7 @@ html {
 }
 
 .butterfly_red_level10 {
-  z-index: 0;
+  z-index: 1;
   bottom: 300px;
   right: 300px;
 }
@@ -789,7 +789,7 @@ html {
 }
 
 .butterfly_yellow_level10 {
-  z-index: 0;
+  z-index: 1;
   top: 200px;
   left: 0px;
 }
@@ -805,6 +805,7 @@ html {
   height: 100px;
   width: 100px;
   position: absolute;
+  z-index: 5;
 }
 
 .net_blue {
@@ -812,7 +813,6 @@ html {
 }
 
 .net_blue_level10 {
-  z-index: 1;
   top: 200px;
   left: 100px;
 }
@@ -822,7 +822,6 @@ html {
 }
 
 .net_red_level10 {
-  z-index: 1;
   top: 300px;
   left: 300px;
 }
@@ -832,7 +831,6 @@ html {
 }
 
 .net_yellow_level10 {
-  z-index: 1;
   top: 0px;
   left: 200px;
 }
@@ -1171,7 +1169,6 @@ html {
   }
 
   .butterfly_blue_level10 {
-    z-index: 0;
     top: 75px;
     left: 0px;
   }
@@ -1197,7 +1194,6 @@ html {
   }
 
   .butterfly_red_level10 {
-    z-index: 0;
     bottom: 225px;
     right: 225px;
   }
@@ -1226,7 +1222,6 @@ html {
   }
 
   .butterfly_yellow_level10 {
-    z-index: 0;
     top: 150px;
     left: 0px;
   }

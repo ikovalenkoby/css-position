@@ -787,6 +787,10 @@ const App = {
         this.blueNetStyle = 'z-index:0;';
         this.redNetStyle = 'z-index:0;';
         this.yellowNetStyle = 'z-index:0;';
+      }else{
+        this.blueNetStyle = newPlayernetAnswer;
+        this.redNetStyle = newPlayernetAnswer;
+        this.yellowNetStyle = newPlayernetAnswer;
       }
     },
     currentLevel(newCurrentLevel) {

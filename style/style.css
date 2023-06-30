@@ -316,8 +316,16 @@ html {
   grid-area: 2 / 4 / 3 / 5;
 }
 
-.level9{
+.level9 {
   grid-area: 3 / 1 / 4 / 2;
+}
+
+.level10 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.level11 {
+  grid-area: 3 / 3 / 4 / 4;
 }
 
 .reset {
@@ -338,6 +346,8 @@ html {
 .level7,
 .level8,
 .level9,
+.level10,
+.level11,
 .reset {
   cursor: pointer;
   text-align: center;
@@ -351,7 +361,9 @@ html {
 .level6,
 .level7,
 .level8,
-.level9 {
+.level9,
+.level10,
+.level11 {
   font-size: 12px;
   margin: 2px;
   height: 30px;
@@ -447,8 +459,8 @@ html {
   grid-template-rows: repeat(4, 100px);
 }
 
-.inner_field{
-  position:relative;
+.inner_field {
+  position: relative;
   background-image: url(../assets/background.png);
   width: 400px;
   height: 400px;
@@ -475,7 +487,6 @@ html {
   width: 100px;
   position: relative;
 }
-
 
 .flower_blue_level5 {
   top: 100px;
@@ -602,6 +613,12 @@ html {
   left: 200px;
 }
 
+.square_blue_level10 {
+  border-top-left-radius: 0px;
+  top: 200px;
+  left: 100px;
+}
+
 .square_red {
   position: absolute;
   box-shadow: inset 0 0 7px 4px var(--shadow-red);
@@ -633,6 +650,11 @@ html {
 .square_red_level9 {
   top: 0px;
   left: 0px;
+}
+
+.square_red_level10 {
+  top: 300px;
+  left: 300px;
 }
 
 .square_red2 {
@@ -672,6 +694,11 @@ html {
   left: 300px;
 }
 
+.square_yellow_level10 {
+  top: 0px;
+  left: 200px;
+}
+
 .butterfly {
   background-repeat: no-repeat;
   background-position: top;
@@ -704,10 +731,14 @@ html {
   left: 0px;
 }
 
+.butterfly_blue_level10 {
+  z-index: 0;
+  top: 100px;
+  left: 0px;
+}
+
 .butterfly_red {
   background-image: url(../assets/butterfly-red.svg);
-  top: -520px;
-  left: 150px;
 }
 
 .butterfly_red_level7 {
@@ -722,8 +753,14 @@ html {
 
 .butterfly_red_level9 {
   z-index: 0;
-  top: 0px;
-  left: 0px;
+  bottom: 300px;
+  right: 300px;
+}
+
+.butterfly_red_level10 {
+  z-index: 0;
+  bottom: 300px;
+  right: 300px;
 }
 
 .butterfly_red2 {
@@ -749,6 +786,55 @@ html {
 .butterfly_yellow_level8 {
   top: 100px;
   left: 0px;
+}
+
+.butterfly_yellow_level10 {
+  z-index: 0;
+  top: 200px;
+  left: 0px;
+}
+
+.butterfly_yellow_level11 {
+  top: 200px;
+  left: 0px;
+}
+
+.net {
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.net_blue {
+  background-image: url(../assets/net-blue.svg);
+}
+
+.net_blue_level10 {
+  z-index: 1;
+  top: 200px;
+  left: 100px;
+}
+
+.net_red {
+  background-image: url(../assets/net-red.svg);
+}
+
+.net_red_level10 {
+  z-index: 1;
+  top: 300px;
+  left: 300px;
+}
+
+.net_yellow {
+  background-image: url(../assets/net-yellow.svg);
+}
+
+.net_yellow_level10 {
+  z-index: 1;
+  top: 0px;
+  left: 200px;
 }
 
 .level_solved {
@@ -836,7 +922,7 @@ html {
     margin: 0 auto;
   }
 
-  .accordion_panel{
+  .accordion_panel {
     padding: 0;
   }
 
@@ -845,8 +931,7 @@ html {
     height: 300px;
   }
 
-
-  .inner_field{
+  .inner_field {
     height: 300px;
     width: 300px;
     background-image: url(../assets/small/background-small.png);
@@ -979,6 +1064,11 @@ html {
     left: 150px;
   }
 
+  .square_blue_level10 {
+    top: 150px;
+    left: 75px;
+  }
+
   .square_red {
     top: 0px;
     left: 75px;
@@ -1009,6 +1099,11 @@ html {
     left: 0px;
   }
 
+  .square_red_level10 {
+    top: 225px;
+    left: 225px;
+  }
+
   .square_red2 {
     top: 225px;
     left: 75px;
@@ -1037,6 +1132,11 @@ html {
   .square_yellow_level8 {
     top: 225px;
     left: 225px;
+  }
+
+  .square_yellow_level10 {
+    top: 0px;
+    left: 150px;
   }
 
   .butterfly {
@@ -1070,6 +1170,12 @@ html {
     left: 0;
   }
 
+  .butterfly_blue_level10 {
+    z-index: 0;
+    top: 75px;
+    left: 0px;
+  }
+
   .butterfly_red {
     background-image: url(../assets/small/butterfly-red-small.svg);
   }
@@ -1088,6 +1194,12 @@ html {
     z-index: 0;
     top: 0px;
     left: 0px;
+  }
+
+  .butterfly_red_level10 {
+    z-index: 0;
+    bottom: 225px;
+    right: 225px;
   }
 
   .butterfly_red2 {
@@ -1111,6 +1223,50 @@ html {
   .butterfly_yellow_level8 {
     top: 75px;
     left: 0px;
+  }
+
+  .butterfly_yellow_level10 {
+    z-index: 0;
+    top: 150px;
+    left: 0px;
+  }
+
+  .butterfly_yellow_level11 {
+    top: 150px;
+    left: 0px;
+  }
+
+  .net {
+    height: 75px;
+    width: 75px;
+  }
+  
+  .net_blue {
+    background-image: url(../assets/small/net-blue-small.svg);
+  }
+  
+  .net_blue_level10 {
+    z-index: 1;
+    top: 150px;
+    left: 75px;
+  }
+  
+  .net_red {
+    background-image: url(../assets/small/net-red-small.svg);
+  }
+  
+  .net_red_level10 {
+    top: 225px;
+    left: 225px;
+  }
+  
+  .net_yellow {
+    background-image: url(../assets/small/net-yellow-small.svg);
+  }
+  
+  .net_yellow_level10 {
+    top: 0px;
+    left: 150px;
   }
 }
 

@@ -38,6 +38,8 @@
             <span @click="setCurrentLevel(7)" class="level7" :class="{completed_button:completedLevels[6]}">7</span>
             <span @click="setCurrentLevel(8)" class="level8" :class="{completed_button:completedLevels[7]}">8</span>
             <span @click="setCurrentLevel(9)" class="level9" :class="{completed_button:completedLevels[8]}">9</span>
+            <span @click="setCurrentLevel(10)" class="level10" :class="{completed_button:completedLevels[9]}">10</span>
+            <span @click="setCurrentLevel(11)" class="level11" :class="{completed_button:completedLevels[10]}">11</span>
             <span @click="reset" class="reset">Сбросить</span>
           </div>
         </div>
@@ -96,6 +98,11 @@
             <textarea type="text" required v-model="playerYellowButterflyAnswer" class="form_input"></textarea>
             <span class="closing_input">}</span>
           </div>
+          <div v-if="levels[currentLevel-1].netAnswer">
+            <span>.net {</span>
+            <textarea type="text" required v-model="playerNetAnswer" class="form_input"></textarea>
+            <span class="closing_input">}</span>
+          </div>
           <button type="submit" class="submit_button">Следующий</button>
         </form>
       </section>
@@ -126,6 +133,12 @@
           v-bind:style="yellowButterflyStyle"></div>
         <div v-if="levels[currentLevel-1].red2Butterfly" v-bind:class="levels[currentLevel-1].red2Butterfly"
           v-bind:style="redButterflyStyle"></div>
+          <div v-if="levels[currentLevel-1].blueNet" v-bind:class="levels[currentLevel-1].blueNet"
+          v-bind:style="blueNetStyle"></div>
+        <div v-if="levels[currentLevel-1].redNet" v-bind:class="levels[currentLevel-1].redNet"
+          v-bind:style="redNetStyle"></div>
+        <div v-if="levels[currentLevel-1].yellowNet" v-bind:class="levels[currentLevel-1].yellowNet"
+          v-bind:style="yellowNetStyle"></div>
       </div>
     </aside>
   </div>

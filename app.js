@@ -2,8 +2,10 @@ const App = {
   data() {
     return {
       currentLevel: 1,
-      maxLevel: 9,
+      maxLevel: 11,
       completedLevels: [
+        false,
+        false,
         false,
         false,
         false,
@@ -385,6 +387,94 @@ const App = {
             butterfly_red_level9: true,
           },
         },
+        {
+          text: [
+            'В прошлом примере нам пришлось использовать z-index,  потому что в   HTML коде блок с бабочкой расположен перед блоком с цветком, и цветок имеет относительное позиционирование. Часто при создании страниц бывают случаи, когда рядом соседствуют блоки с разными значениями позиционирования и нужно отобразить блоки в заданном порядке. Поэтому важно понимать как работает z-index. ',
+            'Разместите бабочек на выделенные клетки с помощью абсолютного позиционирования и координат top и left для жёлтой и синей бабочки, bottom и right  - для красной. Чтобы бабочки не попали в плен, задайте для сачков отрицательный z-index. Полю задано относительное позиционирование.',
+            '*размер одного квадрата равен 100*100 пикселей',
+          ],
+          textHtml: [],
+          accordion: `Код цветов в HTML:`,
+          accordionText: [
+            '<div class="field">',
+            ' <div class="butterfly red"></div>',
+            ' <div class="butterfly blue"></div>',
+            ' <div class="butterfly yellow"></div>',
+            ' <div class="net net-for-red"></div>',
+            ' <div class="net net-for-blue"></div>',
+            ' <div class="net net-for-yellow"></div>',
+            '</div>',
+          ],
+          accordionActive: false,
+          textAfterHtml: [],
+          blueButterflyAnswer: 'position:absolute;top:200px;left:100px;',
+          redButterflyAnswer: 'position:absolute;bottom:0px;right:0px;',
+          yellowButterflyAnswer: 'position:absolute;top:0px;left:200px;',
+          netAnswer: ' ',
+          blueButterfly: {
+            butterfly: true,
+            butterfly_blue: true,
+            butterfly_blue_level10: true,
+          },
+          blueNet: {
+            net: true,
+            net_blue: true,
+            net_blue_level10: true,
+          },
+          blueSquare: {
+            square_blue: true,
+            square_blue_level10: true,
+          },
+          redButterfly: {
+            butterfly: true,
+            butterfly_red: true,
+            butterfly_red_level10: true,
+          },
+          redNet: {
+            net: true,
+            net_red: true,
+            net_red_level10: true,
+          },
+          redSquare: {
+            square_red: true,
+            square_red_level10: true,
+          },
+          yellowButterfly: {
+            butterfly: true,
+            butterfly_yellow: true,
+            butterfly_yellow_level10: true,
+          },
+          yellowNet: {
+            net: true,
+            net_yellow: true,
+            net_yellow_level10: true,
+          },
+          yellowSquare: {
+            square_yellow: true,
+            square_yellow_level10: true,
+          },
+        },
+        {
+          text: [
+            'Кроме относительного и абсолютного есть ещё два типа размещения элементов  на экране. Они очень похожи, однако есть и существенные различия. Это фиксированное и «липкое» позиционирование. ',
+            'Фиксированное позиционирование ( position: fixed;) похоже на абсолютное за исключением того, что элемент изменяет положение относительно окна просмотра браузера (элемента body, если точнее), а не другого элемента. Это полезно при создании меню навигации, которое всегда остаётся в одном и том же месте на экране, в то время как другой контент прокручивается.',
+            'Выпустите желтую бабочку полетать по всему экрану. Для этого задайте ей фиксированное позиционирование и координаты top: 0px; и left: 20px; ',
+            'Если полоса прокрутки у вас не появилась, уменьшите ширину браузера. Поэкспериментируйте с шириной, чтоб увидеть как ведёт себя бабочка по отношению к другому контенту.',
+            'Код цветов в HTML:',
+          ],
+          textHtml: [
+            '<div class="field">',
+            ' <div class=" butterfly-yellow"></div>',
+            '</div>',
+          ],
+          textAfterHtml: [],
+          yellowButterflyAnswer: 'position:fixed;top:0px;left:20px;',
+          yellowButterfly: {
+            butterfly: true,
+            butterfly_yellow: true,
+            butterfly_yellow_level11: true,
+          },
+        },
       ],
       answers: [
         {
@@ -396,6 +486,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -406,6 +497,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -416,6 +508,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -426,6 +519,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -436,6 +530,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -446,6 +541,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -456,6 +552,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -466,6 +563,7 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
         },
         {
           blueAnswer: '',
@@ -476,6 +574,29 @@ const App = {
           yellowButterflyAnswer: '',
           flowerAnswer: '',
           fieldAnswer: '',
+          netAnswer: '',
+        },
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+          netAnswer: '',
+        },
+        {
+          blueAnswer: '',
+          redAnswer: '',
+          yellowAnswer: '',
+          blueButterflyAnswer: '',
+          redButterflyAnswer: '',
+          yellowButterflyAnswer: '',
+          flowerAnswer: '',
+          fieldAnswer: '',
+          netAnswer: '',
         },
       ],
       blueStyle: '',
@@ -484,6 +605,10 @@ const App = {
       blueButterflyStyle: '',
       redButterflyStyle: '',
       yellowButterflyStyle: '',
+      netStyle: '',
+      yellowNetStyle: '',
+      blueNetStyle: '',
+      redNetStyle: '',
       playerBlueAnswer: '',
       playerRedAnswer: '',
       playerFlowerAnswer: '',
@@ -492,6 +617,7 @@ const App = {
       playerBlueButterflyAnswer: '',
       playerRedButterflyAnswer: '',
       playerYellowButterflyAnswer: '',
+      playerNetAnswer: '',
       form: {
         form: true,
         form_shake: false,
@@ -702,6 +828,12 @@ const App = {
           if (this.currentLevel == 8) {
             this.yellowButterflyStyle = `top:calc(75px + calc(${top} * 0.75)); left:calc(${left} * 0.75);`;
           }
+          if (this.currentLevel == 10) {
+            this.yellowButterflyStyle = this.yellowButterflyStyle
+              .replaceAll(' ', '')
+              .replaceAll(`top:${top}`, `top:calc(${top} * 0.75)`)
+              .replaceAll(`left:${left}`, `left:calc(${left} * 0.75)`);
+          }
         } else {
           if (this.currentLevel == 8) {
             this.yellowButterflyStyle = `top:calc(100px + ${top}); left:${left};`;
@@ -731,10 +863,12 @@ const App = {
           right = el.replace('right', '');
         }
         if (this.width < 481) {
-          this.redButterflyStyle = this.redButterflyStyle
-            .replaceAll(' ', '')
-            .replaceAll(`top:${top}`, `top:calc(${top} * 0.75)`)
-            .replaceAll(`left:${left}`, `left:calc(${left} * 0.75)`);
+          if (this.currentLevel != 10) {
+            this.redButterflyStyle = this.redButterflyStyle
+              .replaceAll(' ', '')
+              .replaceAll(`top:${top}`, `top:calc(${top} * 0.75)`)
+              .replaceAll(`left:${left}`, `left:calc(${left} * 0.75)`);
+          }
         }
       });
     },
@@ -763,6 +897,11 @@ const App = {
           this.blueButterflyStyle = `top:calc(${top} * 0.75); left:calc(${left} * 0.75);`;
         }
       });
+    },
+    playerNetAnswer(newPlayernetAnswer) {
+      this.blueNetStyle = newPlayernetAnswer;
+      this.redNetStyle = newPlayernetAnswer;
+      this.yellowNetStyle = newPlayernetAnswer;
     },
     currentLevel(newCurrentLevel) {
       if (newCurrentLevel > 0 && newCurrentLevel < this.maxLevel + 1) {
@@ -813,6 +952,7 @@ const App = {
       this.playerYellowButterflyAnswer =
         this.answers[level - 1].yellowButterflyAnswer;
       this.playerFieldAnswer = this.answers[level - 1].fieldAnswer;
+      this.playerNetAnswer = this.answers[level - 1].netAnswer;
     },
     setAnswers() {
       this.answers[this.currentLevel - 1].blueAnswer = this.playerBlueAnswer;
@@ -828,8 +968,9 @@ const App = {
       this.answers[this.currentLevel - 1].yellowButterflyAnswer =
         this.playerYellowButterflyAnswer;
       this.answers[this.currentLevel - 1].fieldAnswer = this.playerFieldAnswer;
+      this.answers[this.currentLevel - 1].netAnswer = this.playerNetAnswer;
     },
-    clearStyles(level) {
+    clearStyles() {
       this.yellowStyle = '';
       this.yellowButterflyStyle = '';
       this.redStyle = '';
@@ -837,7 +978,7 @@ const App = {
     },
     setCurrentLevel(level) {
       if (this.currentLevel != level) {
-        this.clearStyles(level);
+        this.clearStyles();
         this.setPlayerAnswers(level);
         this.currentLevel = level;
       }
@@ -868,6 +1009,8 @@ const App = {
           false,
           false,
           false,
+          false,
+          false,
         ];
         this.answers = [
           {
@@ -879,6 +1022,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -889,6 +1033,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -899,6 +1044,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -909,6 +1055,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -919,6 +1066,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -929,6 +1077,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -939,6 +1088,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -949,6 +1099,7 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
           },
           {
             blueAnswer: '',
@@ -959,6 +1110,29 @@ const App = {
             yellowButterflyAnswer: '',
             flowerAnswer: '',
             fieldAnswer: '',
+            netAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+            netAnswer: '',
+          },
+          {
+            blueAnswer: '',
+            redAnswer: '',
+            yellowAnswer: '',
+            blueButterflyAnswer: '',
+            redButterflyAnswer: '',
+            yellowButterflyAnswer: '',
+            flowerAnswer: '',
+            fieldAnswer: '',
+            netAnswer: '',
           },
         ];
         this.playerBlueAnswer = '';
@@ -1001,6 +1175,12 @@ const App = {
         this.form.form_shake = false;
       }, '1000');
     },
+    getZIndex(from) {
+      let zIndex;
+      let index = from.indexOf('z-index:');
+      zIndex = from.slice(index + 8, from.length - 1);
+      return { zIndex, index };
+    },
     onSubmit() {
       let next = false;
       let flowerAnswer = this.playerFlowerAnswer
@@ -1027,17 +1207,77 @@ const App = {
       let redButterflyAnswer = this.playerRedButterflyAnswer
         .replaceAll('\n', '')
         .replaceAll(' ', '');
+      let netAnswer = this.playerNetAnswer
+        .replaceAll('\n', '')
+        .replaceAll(' ', '');
       let zIndex;
       if (this.currentLevel == 9) {
-        let index = redButterflyAnswer.indexOf('z-index:');
-        zIndex = redButterflyAnswer.slice(
-          index + 8,
-          redButterflyAnswer.length - 1
-        );
+        zIndex = this.getZIndex(redButterflyAnswer);
         redButterflyAnswer = redButterflyAnswer.replace(
-          redButterflyAnswer.slice(index, redButterflyAnswer.length),
+          redButterflyAnswer.slice(zIndex.index, redButterflyAnswer.length),
           ''
         );
+        if (+zIndex.zIndex > 0) {
+          next = true;
+        } else {
+          next = false;
+          this.showError();
+          return false;
+        }
+      }
+      if (this.currentLevel == 10) {
+        zIndex = this.getZIndex(netAnswer);
+        netAnswer = netAnswer.replace(
+          netAnswer.slice(zIndex.index, netAnswer.length),
+          ''
+        );
+
+        if (+zIndex.zIndex < 0) {
+          next = true;
+        } else {
+          next = false;
+          this.showError();
+          return false;
+        }
+        zIndex = this.getZIndex(redButterflyAnswer);
+        redButterflyAnswer = redButterflyAnswer.replace(
+          redButterflyAnswer.slice(zIndex.index, redButterflyAnswer.length),
+          ''
+        );
+        if (+zIndex.zIndex > 0) {
+          next = true;
+        } else {
+          next = false;
+          this.showError();
+          return false;
+        }
+        zIndex = this.getZIndex(blueButterflyAnswer);
+        blueButterflyAnswer = blueButterflyAnswer.replace(
+          blueButterflyAnswer.slice(zIndex.index, blueButterflyAnswer.length),
+          ''
+        );
+        if (+zIndex.zIndex > 0) {
+          next = true;
+        } else {
+          next = false;
+          this.showError();
+          return false;
+        }
+        zIndex = this.getZIndex(yellowButterflyAnswer);
+        yellowButterflyAnswer = yellowButterflyAnswer.replace(
+          yellowButterflyAnswer.slice(
+            zIndex.index,
+            yellowButterflyAnswer.length
+          ),
+          ''
+        );
+        if (+zIndex.zIndex > 0) {
+          next = true;
+        } else {
+          next = false;
+          this.showError();
+          return false;
+        }
       }
       if (
         this.levels[this.currentLevel - 1].fieldAnswer &&
@@ -1048,13 +1288,6 @@ const App = {
         this.levels[this.currentLevel - 1].fieldAnswer &&
         this.levels[this.currentLevel - 1].fieldAnswer !== fieldAnswer
       ) {
-        next = false;
-        this.showError();
-        return false;
-      }
-      if (this.currentLevel == 9 && +zIndex > 0) {
-        next = true;
-      } else if (this.currentLevel == 9 && +zIndex <= 0) {
         next = false;
         this.showError();
         return false;
